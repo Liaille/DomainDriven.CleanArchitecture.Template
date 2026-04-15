@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>3eac3fc1-6a11-4474-8059-5ad0d11f94e3</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="Swagger\" />
+    <Folder Include="IntegrationEventHandlers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Template.Application\Template.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Shared.Infrastructure\Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Caching\Template.Infrastructure.Caching.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus.MassTransit\Template.Infrastructure.EventBus.MassTransit.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus\Template.Infrastructure.EventBus.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Persistence\Template.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Security\Template.Infrastructure.Security.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure\Template.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Shared\Template.Shared.Core\Template.Shared.Core.csproj" />
+  </ItemGroup>
+
+</Project>

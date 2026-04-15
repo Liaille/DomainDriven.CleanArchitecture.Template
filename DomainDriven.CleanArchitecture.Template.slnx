@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Application/Template.Application/Template.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Domain/Template.Domain/Template.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/Shared.Infrastructure/Shared.Infrastructure.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure.Caching/Template.Infrastructure.Caching.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure.EventBus.MassTransit/Template.Infrastructure.EventBus.MassTransit.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure.EventBus/Template.Infrastructure.EventBus.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure.Persistence/Template.Infrastructure.Persistence.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure.Security/Template.Infrastructure.Security.csproj" />
+    <Project Path="Infrastructure/Template.Infrastructure/Template.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Presentation/Template.Api/Template.Api.csproj" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="Shared/Template.Shared.Core/Template.Shared.Core.csproj" />
+  </Folder>
+</Solution>
