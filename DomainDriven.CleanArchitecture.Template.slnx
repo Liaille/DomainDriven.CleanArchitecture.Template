@@ -3,6 +3,7 @@
     <Project Path="Application/Template.Application/Template.Application.csproj" />
   </Folder>
   <Folder Name="/Domain/">
+    <Project Path="Domain/Template.Domain.Core/Template.Domain.Core.csproj" Id="9c4f1a02-8dbd-4ede-840e-d161c430d6b1" />
     <Project Path="Domain/Template.Domain/Template.Domain.csproj" />
   </Folder>
   <Folder Name="/Infrastructure/">
