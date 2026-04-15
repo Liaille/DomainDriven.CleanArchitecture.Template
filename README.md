@@ -1,0 +1,1 @@
+# DomainDriven.CleanArchitecture.Template
