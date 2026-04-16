@@ -1,4 +1,11 @@
 <Solution>
+  <Folder Name="/Abstractions/">
+    <Project Path="Abstractions/Template.Caching.Abstractions/Template.Caching.Abstractions.csproj" Id="a3dbad6d-9f61-421d-bf23-b4bf3a8d6829" />
+    <Project Path="Abstractions/Template.Contracts/Template.Contracts.csproj" Id="3ab240af-70b6-4e0e-ab0f-1b73270792da" />
+    <Project Path="Abstractions/Template.EventBus.Abstractions/Template.EventBus.Abstractions.csproj" Id="d955e2d5-2eb9-4bfb-9125-bb57314080d3" />
+    <Project Path="Abstractions/Template.Persistence.Abstractions/Template.Persistence.Abstractions.csproj" Id="0145edd6-af9b-4142-ba13-caf00318d7fc" />
+    <Project Path="Abstractions/Template.Security.Abstractions/Template.Security.Abstractions.csproj" Id="36cb8c5a-dc8f-4b17-afff-367ac64daa07" />
+  </Folder>
   <Folder Name="/Application/">
     <Project Path="Application/Template.Application/Template.Application.csproj" />
   </Folder>
@@ -7,18 +14,12 @@
     <Project Path="Domain/Template.Domain/Template.Domain.csproj" />
   </Folder>
   <Folder Name="/Infrastructure/">
-    <Project Path="Infrastructure/Shared.Infrastructure/Shared.Infrastructure.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure.Caching/Template.Infrastructure.Caching.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure.EventBus.MassTransit/Template.Infrastructure.EventBus.MassTransit.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure.EventBus/Template.Infrastructure.EventBus.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure.Persistence/Template.Infrastructure.Persistence.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure.Security/Template.Infrastructure.Security.csproj" />
-    <Project Path="Infrastructure/Template.Infrastructure/Template.Infrastructure.csproj" />
+    <Project Path="Infrastructure/Template.Caching.StackExchangeRedis/Template.Caching.StackExchangeRedis.csproj" Id="1255205b-cd71-4ac6-9e99-0c0d8a843ddb" />
+    <Project Path="Infrastructure/Template.EventBus.MassTransit/Template.EventBus.MassTransit.csproj" Id="8653c7bc-213b-4f07-af45-d8d12631cdb5" />
+    <Project Path="Infrastructure/Template.Persistence.EntityFrameworkCore/Template.Persistence.EntityFrameworkCore.csproj" Id="2f4eb2ca-67cf-4810-82ee-e4439e849468" />
+    <Project Path="Infrastructure/Template.Security.Jwt/Template.Security.Jwt.csproj" Id="ef15cd3a-0115-46d2-a917-a55fca9a77d3" />
   </Folder>
   <Folder Name="/Presentation/">
     <Project Path="Presentation/Template.Api/Template.Api.csproj" />
-  </Folder>
-  <Folder Name="/Shared/">
-    <Project Path="Shared/Template.Shared.Core/Template.Shared.Core.csproj" />
   </Folder>
 </Solution>

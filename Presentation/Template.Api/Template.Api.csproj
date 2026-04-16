@@ -22,15 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Template.Contracts\Template.Contracts.csproj" />
     <ProjectReference Include="..\..\Application\Template.Application\Template.Application.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Shared.Infrastructure\Shared.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Caching\Template.Infrastructure.Caching.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus.MassTransit\Template.Infrastructure.EventBus.MassTransit.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus\Template.Infrastructure.EventBus.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Persistence\Template.Infrastructure.Persistence.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.Security\Template.Infrastructure.Security.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure\Template.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\Shared\Template.Shared.Core\Template.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Caching.StackExchangeRedis\Template.Caching.StackExchangeRedis.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.EventBus.MassTransit\Template.EventBus.MassTransit.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus.MassTransit\Template.EventBus.MassTransit.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Persistence.EntityFrameworkCore\Template.Persistence.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Template.Security.Jwt\Template.Security.Jwt.csproj" />
   </ItemGroup>
 
 </Project>

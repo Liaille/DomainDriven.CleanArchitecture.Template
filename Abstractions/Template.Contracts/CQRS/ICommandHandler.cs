@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Template.Shared.Core.CQRS;
+namespace Template.Contracts.CQRS;
 
 /// <summary>
 /// 无返回值命令处理器接口

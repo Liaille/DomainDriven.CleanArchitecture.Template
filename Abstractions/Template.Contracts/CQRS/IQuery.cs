@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Template.Shared.Core.CQRS;
+namespace Template.Contracts.CQRS;
 
 /// <summary>
 /// 查询接口

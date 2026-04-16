@@ -7,14 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
-    <Folder Include="Models\" />
-    <Folder Include="Constants\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="14.1.0" />
+    <ProjectReference Include="..\..\Domain\Template.Domain.Core\Template.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

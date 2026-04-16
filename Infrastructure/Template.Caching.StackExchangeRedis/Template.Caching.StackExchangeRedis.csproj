@@ -7,12 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="IntegrationEvents\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Template.Shared.Core\Template.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Template.Caching.Abstractions\Template.Caching.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

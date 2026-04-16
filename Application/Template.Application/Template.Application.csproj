@@ -15,8 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Template.Caching.Abstractions\Template.Caching.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Template.Contracts\Template.Contracts.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Template.EventBus.Abstractions\Template.EventBus.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Template.Persistence.Abstractions\Template.Persistence.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Template.Security.Abstractions\Template.Security.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Domain\Template.Domain.Core\Template.Domain.Core.csproj" />
     <ProjectReference Include="..\..\Domain\Template.Domain\Template.Domain.csproj" />
-    <ProjectReference Include="..\..\Shared\Template.Shared.Core\Template.Shared.Core.csproj" />
   </ItemGroup>
 
 </Project>
