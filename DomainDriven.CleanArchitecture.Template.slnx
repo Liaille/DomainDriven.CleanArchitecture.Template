@@ -1,25 +1,31 @@
 <Solution>
   <Folder Name="/Abstractions/">
-    <Project Path="Abstractions/Template.Caching.Abstractions/Template.Caching.Abstractions.csproj" Id="a3dbad6d-9f61-421d-bf23-b4bf3a8d6829" />
-    <Project Path="Abstractions/Template.Contracts/Template.Contracts.csproj" Id="3ab240af-70b6-4e0e-ab0f-1b73270792da" />
-    <Project Path="Abstractions/Template.EventBus.Abstractions/Template.EventBus.Abstractions.csproj" Id="d955e2d5-2eb9-4bfb-9125-bb57314080d3" />
-    <Project Path="Abstractions/Template.Persistence.Abstractions/Template.Persistence.Abstractions.csproj" Id="0145edd6-af9b-4142-ba13-caf00318d7fc" />
-    <Project Path="Abstractions/Template.Security.Abstractions/Template.Security.Abstractions.csproj" Id="36cb8c5a-dc8f-4b17-afff-367ac64daa07" />
+    <Project Path="src/Abstractions/Template.Caching.Abstractions/Template.Caching.Abstractions.csproj" />
+    <Project Path="src/Abstractions/Template.Contracts/Template.Contracts.csproj" />
+    <Project Path="src/Abstractions/Template.EventBus.Abstractions/Template.EventBus.Abstractions.csproj" />
+    <Project Path="src/Abstractions/Template.Persistence.Abstractions/Template.Persistence.Abstractions.csproj" />
+    <Project Path="src/Abstractions/Template.Security.Abstractions/Template.Security.Abstractions.csproj" />
   </Folder>
   <Folder Name="/Application/">
-    <Project Path="Application/Template.Application/Template.Application.csproj" />
+    <Project Path="src/Application/Template.Application/Template.Application.csproj" />
   </Folder>
   <Folder Name="/Domain/">
-    <Project Path="Domain/Template.Domain.Core/Template.Domain.Core.csproj" Id="9c4f1a02-8dbd-4ede-840e-d161c430d6b1" />
-    <Project Path="Domain/Template.Domain/Template.Domain.csproj" />
+    <Project Path="src/Domain/Template.Domain.Core/Template.Domain.Core.csproj" />
+    <Project Path="src/Domain/Template.Domain/Template.Domain.csproj" />
   </Folder>
   <Folder Name="/Infrastructure/">
-    <Project Path="Infrastructure/Template.Caching.StackExchangeRedis/Template.Caching.StackExchangeRedis.csproj" Id="1255205b-cd71-4ac6-9e99-0c0d8a843ddb" />
-    <Project Path="Infrastructure/Template.EventBus.MassTransit/Template.EventBus.MassTransit.csproj" Id="8653c7bc-213b-4f07-af45-d8d12631cdb5" />
-    <Project Path="Infrastructure/Template.Persistence.EntityFrameworkCore/Template.Persistence.EntityFrameworkCore.csproj" Id="2f4eb2ca-67cf-4810-82ee-e4439e849468" />
-    <Project Path="Infrastructure/Template.Security.Jwt/Template.Security.Jwt.csproj" Id="ef15cd3a-0115-46d2-a917-a55fca9a77d3" />
+    <Project Path="src/Infrastructure/Template.Caching.StackExchangeRedis/Template.Caching.StackExchangeRedis.csproj" />
+    <Project Path="src/Infrastructure/Template.EventBus.MassTransit/Template.EventBus.MassTransit.csproj" />
+    <Project Path="src/Infrastructure/Template.Persistence.EntityFrameworkCore/Template.Persistence.EntityFrameworkCore.csproj" />
+    <Project Path="src/Infrastructure/Template.Security.Jwt/Template.Security.Jwt.csproj" />
   </Folder>
   <Folder Name="/Presentation/">
-    <Project Path="Presentation/Template.Api/Template.Api.csproj" />
+    <Project Path="src/Presentation/Template.Api/Template.Api.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Template.Api.Tests/Template.Api.Tests.csproj" Id="594ad0e9-3f0b-4444-a7c9-ad3b56930351" />
+    <Project Path="Tests/Template.Application.Tests/Template.Application.Tests.csproj" Id="c5932566-e181-4caa-a942-b0101833c36c" />
+    <Project Path="Tests/Template.Domain.Tests/Template.Domain.Tests.csproj" Id="685eac18-1e25-4ce1-9ee9-1a3f4db389f8" />
+    <Project Path="Tests/Template.Infrastructure.Tests/Template.Infrastructure.Tests.csproj" Id="75bcb974-1a34-4cee-a21f-0b8e25fef4d1" />
   </Folder>
 </Solution>

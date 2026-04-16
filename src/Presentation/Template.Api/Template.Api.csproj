@@ -26,7 +26,6 @@
     <ProjectReference Include="..\..\Application\Template.Application\Template.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Template.Caching.StackExchangeRedis\Template.Caching.StackExchangeRedis.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Template.EventBus.MassTransit\Template.EventBus.MassTransit.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Template.Infrastructure.EventBus.MassTransit\Template.EventBus.MassTransit.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Template.Persistence.EntityFrameworkCore\Template.Persistence.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Template.Security.Jwt\Template.Security.Jwt.csproj" />
   </ItemGroup>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="MSTest.Sdk/4.0.2">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Abstractions\Template.Contracts\Template.Contracts.csproj" />
+    <ProjectReference Include="..\..\src\Application\Template.Application\Template.Application.csproj" />
+    <ProjectReference Include="..\..\src\Domain\Template.Domain.Core\Template.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\src\Domain\Template.Domain\Template.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
