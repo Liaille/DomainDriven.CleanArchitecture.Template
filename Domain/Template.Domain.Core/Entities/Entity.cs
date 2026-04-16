@@ -5,6 +5,7 @@ namespace Template.Domain.Core.Entities;
 /// <summary>
 /// 实体基类 (支持复合主键 / 自定义主键)
 /// </summary>
+[Serializable]
 public abstract class Entity : IEntity
 {
     /// <summary>
@@ -29,6 +30,7 @@ public abstract class Entity : IEntity
 /// 支持单一主键场景（如 int/long/Guid/string 等），简化主键访问
 /// </summary>
 /// <typeparam name="TKey">主键类型</typeparam>
+[Serializable]
 public abstract class Entity<TKey> : Entity, IEntity<TKey>
 {
     /// <summary>

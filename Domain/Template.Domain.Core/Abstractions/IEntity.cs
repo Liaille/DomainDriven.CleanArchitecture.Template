@@ -7,7 +7,7 @@
 public interface IEntity
 {
     /// <summary>
-    /// 获取主键数组（支持复合主键）
+    /// 获取主键数组 (支持复合主键、自定义主键)
     /// </summary>
     object[] GetKeys();
 }

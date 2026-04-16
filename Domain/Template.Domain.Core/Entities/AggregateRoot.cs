@@ -6,6 +6,7 @@ namespace Template.Domain.Core.Entities;
 /// <summary>
 /// 聚合根基类 (复合主键/自定义主键)
 /// </summary>
+[Serializable]
 public abstract class AggregateRoot : Entity, IAggregateRoot
 {
     private readonly List<DomainEventRecord> _domainEvents = [];
@@ -27,6 +28,7 @@ public abstract class AggregateRoot : Entity, IAggregateRoot
 /// 泛型主键聚合根基类
 /// 适用于单一主键场景（如 int/long/Guid/string 等），简化主键访问
 /// </summary>
+[Serializable]
 public abstract class AggregateRoot<TKey> : Entity<TKey>, IAggregateRoot<TKey>
 {
     private readonly List<DomainEventRecord> _domainEvents = [];
