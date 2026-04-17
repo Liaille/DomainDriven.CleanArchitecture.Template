@@ -1,31 +1,46 @@
 <Solution>
-  <Folder Name="/Abstractions/">
-    <Project Path="src/Abstractions/Template.Caching.Abstractions/Template.Caching.Abstractions.csproj" />
-    <Project Path="src/Abstractions/Template.Contracts/Template.Contracts.csproj" />
-    <Project Path="src/Abstractions/Template.EventBus.Abstractions/Template.EventBus.Abstractions.csproj" />
-    <Project Path="src/Abstractions/Template.Persistence.Abstractions/Template.Persistence.Abstractions.csproj" />
-    <Project Path="src/Abstractions/Template.Security.Abstractions/Template.Security.Abstractions.csproj" />
-  </Folder>
   <Folder Name="/Application/">
-    <Project Path="src/Application/Template.Application/Template.Application.csproj" />
+    <Project Path="src/Application/Application.Contracts/Application.Contracts.csproj" Id="0832346b-3cee-45d7-a32d-eb73bf3371f1" />
+    <Project Path="src/Application/Application/Application.csproj" Id="668be59d-a05d-47e7-a593-d9a38083e020" />
+  </Folder>
+  <Folder Name="/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Api/BuildingBlocks.Api.csproj" Id="598d56e2-0698-421b-9a69-c33e67b8da12" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.AppInitializer/BuildingBlocks.AppInitializer.csproj" Id="23d2fc29-cb8b-4ed7-b167-929f0d1e62f8" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.BackgroundJobs/BuildingBlocks.BackgroundJobs.csproj" Id="1f0d0f8d-d820-4482-96ad-f57d81ad4d1c" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Caching/BuildingBlocks.Caching.csproj" Id="73401866-894e-47c7-9f29-f2ca74e53939" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Configuration/BuildingBlocks.Configuration.csproj" Id="d5657a4e-c574-4baa-9565-41f5276fa340" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Core/BuildingBlocks.Core.csproj" Id="fbbd0828-fb37-4fda-86cf-dbe30a3db742" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.EventBus/BuildingBlocks.EventBus.csproj" Id="3ba02959-a02b-410b-88a6-e1e32898911e" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.HttpClient/BuildingBlocks.HttpClient.csproj" Id="e32227a4-7126-42d7-87f8-8918f6d57178" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.IdGenerator/BuildingBlocks.IdGenerator.csproj" Id="19d88ba0-9881-4ec1-a272-f3d6aa17957f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Logging/BuildingBlocks.Logging.csproj" Id="960786b2-e409-404b-990c-30db8beb5d6a" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Monitoring/BuildingBlocks.Monitoring.csproj" Id="ce61c847-cde3-442e-b0eb-889d9d2e3eaf" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/BuildingBlocks.Persistence.csproj" Id="26e937d8-610b-4335-846f-2f1dfd29232f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Resilience/BuildingBlocks.Resilience.csproj" Id="46d7c4a5-510c-4b42-8494-8717b45e52f4" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Security/BuildingBlocks.Security.csproj" Id="93820a58-1f40-4ca8-ab08-0fda3d2fb57f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Serialization/BuildingBlocks.Serialization.csproj" Id="5dda2ee4-64ff-4005-bbb2-ad4f754be9f7" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Storage/BuildingBlocks.Storage.csproj" Id="d89cd1ac-6e34-4275-94cb-d15a85fddacb" />
   </Folder>
   <Folder Name="/Domain/">
-    <Project Path="src/Domain/Template.Domain.Core/Template.Domain.Core.csproj" />
-    <Project Path="src/Domain/Template.Domain/Template.Domain.csproj" />
+    <Project Path="src/Domain/Domain.Shared/Domain.Shared.csproj" Id="8ed97300-e2df-41ce-8837-488d970eb503" />
+    <Project Path="src/Domain/Domain/Domain.csproj" Id="cdd83e1c-5d34-4302-a752-8539f1028091" />
   </Folder>
   <Folder Name="/Infrastructure/">
-    <Project Path="src/Infrastructure/Template.Caching.StackExchangeRedis/Template.Caching.StackExchangeRedis.csproj" />
-    <Project Path="src/Infrastructure/Template.EventBus.MassTransit/Template.EventBus.MassTransit.csproj" />
-    <Project Path="src/Infrastructure/Template.Persistence.EntityFrameworkCore/Template.Persistence.EntityFrameworkCore.csproj" />
-    <Project Path="src/Infrastructure/Template.Security.Jwt/Template.Security.Jwt.csproj" />
+    <Project Path="src/Infrastructure/Infrastructure.EntityFrameworkCore/Infrastructure.EntityFrameworkCore.csproj" Id="def2a88e-b2ab-4393-8fb5-8769a36e60a7" />
+    <Project Path="src/Infrastructure/Infrastructure.Jwt/Infrastructure.Jwt.csproj" Id="50a1adff-3bde-472c-8615-41143bfdc8a2" />
+    <Project Path="src/Infrastructure/Infrastructure.Minio/Infrastructure.Minio.csproj" Id="48c370b4-015f-4075-a0e1-8f8282f85e80" />
+    <Project Path="src/Infrastructure/Infrastructure.Quartz/Infrastructure.Quartz.csproj" Id="a807fb2d-3367-4d56-8c76-43913f143fab" />
+    <Project Path="src/Infrastructure/Infrastructure.RabbitMQ/Infrastructure.RabbitMQ.csproj" Id="db5f8bd2-b8b6-4a30-87c3-8f8f90715d41" />
+    <Project Path="src/Infrastructure/Infrastructure.Redis/Infrastructure.Redis.csproj" Id="6631ade0-5b54-4703-86c6-5bea380c09df" />
+    <Project Path="src/Infrastructure/Infrastructure/Infrastructure.csproj" Id="ce2555b6-6b66-4543-9f8e-eb8ec508f336" />
   </Folder>
   <Folder Name="/Presentation/">
-    <Project Path="src/Presentation/Template.Api/Template.Api.csproj" />
+    <Project Path="src/Presentation/Api/Api.csproj" Id="2d97fd6e-2865-4f67-8e15-1d4b577d3ea3" />
+    <Project Path="src/Presentation/ApiGateway/ApiGateway.csproj" Id="0184888a-e33b-4d9d-a024-00143953ff44" />
   </Folder>
   <Folder Name="/Tests/">
-    <Project Path="Tests/Template.Api.Tests/Template.Api.Tests.csproj" Id="594ad0e9-3f0b-4444-a7c9-ad3b56930351" />
-    <Project Path="Tests/Template.Application.Tests/Template.Application.Tests.csproj" Id="c5932566-e181-4caa-a942-b0101833c36c" />
-    <Project Path="Tests/Template.Domain.Tests/Template.Domain.Tests.csproj" Id="685eac18-1e25-4ce1-9ee9-1a3f4db389f8" />
-    <Project Path="Tests/Template.Infrastructure.Tests/Template.Infrastructure.Tests.csproj" Id="75bcb974-1a34-4cee-a21f-0b8e25fef4d1" />
+    <Project Path="tests/IntegrationTests/IntegrationTests.csproj" Id="2fca1103-3c7c-45c9-947d-a25943507644" />
+    <Project Path="tests/PerformanceTests/PerformanceTests.csproj" Id="f41b5021-7f53-40ce-a8a2-46d11189e9db" />
+    <Project Path="tests/UnitTests/UnitTests.csproj" Id="729171c6-7267-4b4e-b469-785e80ef5f88" />
   </Folder>
 </Solution>

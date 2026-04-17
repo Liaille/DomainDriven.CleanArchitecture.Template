@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\" />
+    <Folder Include="Specification\" />
+    <Folder Include="EfCore\" />
+    <Folder Include="SoftDelete\" />
+    <Folder Include="AuditFields\" />
+    <Folder Include="MultiTenancy\" />
+    <Folder Include="ReadWriteSplitting\" />
+    <Folder Include="Sharding\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+  </ItemGroup>
+
+</Project>
