@@ -13,4 +13,12 @@
     <ProjectReference Include="..\..\src\Domain\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DomainTests\" />
+    <Folder Include="ApplicationTests\" />
+    <Folder Include="BuildingBlocksTests\" />
+    <Folder Include="Mocks\" />
+    <Folder Include="Fixtures\" />
+  </ItemGroup>
+
 </Project>

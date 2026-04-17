@@ -7,12 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Constants\" />
-    <Folder Include="ValueObjects\" />
+    <Folder Include="StringLocalizer\" />
+    <Folder Include="TimeZone\" />
+    <Folder Include="ResourceManagement\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Errors\" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,8 @@
     <Folder Include="GrpcClient\" />
     <Folder Include="ServiceDiscovery\" />
     <Folder Include="LoadBalancing\" />
+    <Folder Include="ResiliencePolicies\" />
+    <Folder Include="ServiceSecurity\" />
   </ItemGroup>
 
   <ItemGroup>

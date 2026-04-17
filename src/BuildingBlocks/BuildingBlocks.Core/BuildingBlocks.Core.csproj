@@ -7,14 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Context\" />
     <Folder Include="Entities\" />
     <Folder Include="Events\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Context\" />
     <Folder Include="Repositories\" />
     <Folder Include="UnitOfWork\" />
-    <Folder Include="Common\" />
     <Folder Include="ValueObjects\" />
+    <Folder Include="Performance\" />
   </ItemGroup>
 
 </Project>

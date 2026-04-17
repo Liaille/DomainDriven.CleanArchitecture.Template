@@ -15,8 +15,12 @@
     <Folder Include="Signature\" />
     <Folder Include="AntiReplay\" />
     <Folder Include="Encryption\" />
-    <Folder Include="Passwords\" />
+    <Folder Include="PasswordHash\" />
     <Folder Include="Masking\" />
+    <Folder Include="DataMasking\" />
+    <Folder Include="Policy\" />
+    <Folder Include="MaliciousRequest\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

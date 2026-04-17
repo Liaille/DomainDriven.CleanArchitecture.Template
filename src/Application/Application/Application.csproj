@@ -12,7 +12,8 @@
     <Folder Include="QueryHandlers\" />
     <Folder Include="EventHandlers\" />
     <Folder Include="Mappings\" />
-    <Folder Include="Validations\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
 
   <ItemGroup>

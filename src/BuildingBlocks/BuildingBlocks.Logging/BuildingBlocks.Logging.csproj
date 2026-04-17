@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Structured\" />
-    <Folder Include="Request\" />
-    <Folder Include="Exception\" />
-    <Folder Include="Audit\" />
-    <Folder Include="Business\" />
-    <Folder Include="Performance\" />
+    <Folder Include="RequestLogging\" />
+    <Folder Include="ExceptionLogging\" />
+    <Folder Include="AuditLogging\" />
+    <Folder Include="BusinessLogging\" />
+    <Folder Include="PerformanceLogging\" />
+    <Folder Include="Sinks\" />
   </ItemGroup>
 
   <ItemGroup>

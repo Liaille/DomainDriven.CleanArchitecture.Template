@@ -9,10 +9,14 @@
   <ItemGroup>
     <Folder Include="Middleware\" />
     <Folder Include="Filters\" />
-    <Folder Include="Responses\" />
+    <Folder Include="ResponseCompression\" />
     <Folder Include="Swagger\" />
     <Folder Include="ApiVersioning\" />
     <Folder Include="Routing\" />
+    <Folder Include="Cors\" />
+    <Folder Include="SecurityHeaders\" />
+    <Folder Include="UnifiedResponse\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

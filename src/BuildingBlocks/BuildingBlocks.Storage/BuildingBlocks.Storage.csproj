@@ -10,7 +10,12 @@
     <Folder Include="BlobStorage\" />
     <Folder Include="FileSecurity\" />
     <Folder Include="ImageProcessing\" />
-    <Folder Include="LargeFileUpload\" />
+    <Folder Include="MultipartUpload\" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="LocalStorage\" />
+    <Folder Include="MinIO\" />
+    <Folder Include="S3\" />
+    <Folder Include="Security\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Yarp\" />
     <Folder Include="Routes\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace IntegrationTests;
+﻿namespace Tests.Performance;
 
 [TestClass]
 public sealed class Test1

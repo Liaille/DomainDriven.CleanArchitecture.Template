@@ -8,9 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.EntityFrameworkCore\Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\Presentation\Api\Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Benchmarks\" />
+    <Folder Include="LoadTests\" />
+    <Folder Include="Fixtures\" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,7 @@
     <Folder Include="RateLimiting\" />
     <Folder Include="Idempotency\" />
     <Folder Include="Protection\" />
+    <Folder Include="DistributedCounter\" />
   </ItemGroup>
 
   <ItemGroup>

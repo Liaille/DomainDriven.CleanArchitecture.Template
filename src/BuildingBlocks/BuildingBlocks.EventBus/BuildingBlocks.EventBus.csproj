@@ -13,6 +13,9 @@
     <Folder Include="Inbox\" />
     <Folder Include="DeadLetter\" />
     <Folder Include="RetryQueue\" />
+    <Folder Include="EventSourcing\" />
+    <Folder Include="Snapshot\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

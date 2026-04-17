@@ -12,6 +12,8 @@
     <Folder Include="UnitOfWork\" />
     <Folder Include="EntityConfigurations\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Interceptors\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
 
   <ItemGroup>

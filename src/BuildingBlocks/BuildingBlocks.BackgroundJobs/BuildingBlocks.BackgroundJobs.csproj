@@ -12,6 +12,7 @@
     <Folder Include="DelayedJobs\" />
     <Folder Include="JobQueue\" />
     <Folder Include="JobState\" />
+    <Folder Include="BackgroundServices\" />
   </ItemGroup>
 
   <ItemGroup>

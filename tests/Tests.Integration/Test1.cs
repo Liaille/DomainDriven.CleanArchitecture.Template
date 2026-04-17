@@ -1,4 +1,4 @@
-﻿namespace UnitTests;
+﻿namespace Tests.Integration;
 
 [TestClass]
 public sealed class Test1

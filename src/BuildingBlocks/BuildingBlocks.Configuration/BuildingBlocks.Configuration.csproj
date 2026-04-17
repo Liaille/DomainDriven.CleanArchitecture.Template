@@ -8,9 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Options\" />
-    <Folder Include="Validation\" />
-    <Folder Include="Encryption\" />
+    <Folder Include="ConfigValidation\" />
+    <Folder Include="EncryptedConfig\" />
     <Folder Include="ConfigCenter\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

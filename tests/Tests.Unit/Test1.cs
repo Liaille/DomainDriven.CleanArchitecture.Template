@@ -1,4 +1,4 @@
-﻿namespace PerformanceTests;
+﻿namespace Tests.Unit;
 
 [TestClass]
 public sealed class Test1

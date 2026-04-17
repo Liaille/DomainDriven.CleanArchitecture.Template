@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Constants\" />
-    <Folder Include="ValueObjects\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Errors\" />
+    <Folder Include="EventStore\" />
+    <Folder Include="SnapshotStore\" />
+    <Folder Include="EventReplay\" />
   </ItemGroup>
 
 </Project>

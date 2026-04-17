@@ -15,6 +15,7 @@
     <Folder Include="MultiTenancy\" />
     <Folder Include="ReadWriteSplitting\" />
     <Folder Include="Sharding\" />
+    <Folder Include="UnitOfWork\" />
   </ItemGroup>
 
   <ItemGroup>
