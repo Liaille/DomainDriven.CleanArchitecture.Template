@@ -54,26 +54,17 @@ public abstract class Specification<T> : ISpecification<T>
 /// <summary>
 /// 与规约
 /// </summary>
-internal class AndSpecification<T> : Specification<T>
+internal class AndSpecification<T>(Specification<T> left, Specification<T> right) : Specification<T>
 {
-    private readonly Specification<T> _left;
-    private readonly Specification<T> _right;
-
-    public AndSpecification(Specification<T> left, Specification<T> right)
-    {
-        _left = left;
-        _right = right;
-    }
-
     public override bool IsSatisfiedBy(T entity)
     {
-        return _left.IsSatisfiedBy(entity) && _right.IsSatisfiedBy(entity);
+        return left.IsSatisfiedBy(entity) && right.IsSatisfiedBy(entity);
     }
 
     public override Expression<Func<T, bool>> ToExpression()
     {
-        var leftExpr = _left.ToExpression();
-        var rightExpr = _right.ToExpression();
+        var leftExpr = left.ToExpression();
+        var rightExpr = right.ToExpression();
         var parameterExpr = Expression.Parameter(typeof(T));
 
         var body = Expression.AndAlso(
@@ -88,26 +79,17 @@ internal class AndSpecification<T> : Specification<T>
 /// <summary>
 /// 或规约
 /// </summary>
-internal class OrSpecification<T> : Specification<T>
+internal class OrSpecification<T>(Specification<T> left, Specification<T> right) : Specification<T>
 {
-    private readonly Specification<T> _left;
-    private readonly Specification<T> _right;
-
-    public OrSpecification(Specification<T> left, Specification<T> right)
-    {
-        _left = left;
-        _right = right;
-    }
-
     public override bool IsSatisfiedBy(T entity)
     {
-        return _left.IsSatisfiedBy(entity) || _right.IsSatisfiedBy(entity);
+        return left.IsSatisfiedBy(entity) || right.IsSatisfiedBy(entity);
     }
 
     public override Expression<Func<T, bool>> ToExpression()
     {
-        var leftExpr = _left.ToExpression();
-        var rightExpr = _right.ToExpression();
+        var leftExpr = left.ToExpression();
+        var rightExpr = right.ToExpression();
         var parameterExpr = Expression.Parameter(typeof(T));
 
         var body = Expression.OrElse(
@@ -122,23 +104,16 @@ internal class OrSpecification<T> : Specification<T>
 /// <summary>
 /// 非规约
 /// </summary>
-internal class NotSpecification<T> : Specification<T>
+internal class NotSpecification<T>(Specification<T> specification) : Specification<T>
 {
-    private readonly Specification<T> _specification;
-
-    public NotSpecification(Specification<T> specification)
-    {
-        _specification = specification;
-    }
-
     public override bool IsSatisfiedBy(T entity)
     {
-        return !_specification.IsSatisfiedBy(entity);
+        return !specification.IsSatisfiedBy(entity);
     }
 
     public override Expression<Func<T, bool>> ToExpression()
     {
-        var expr = _specification.ToExpression();
+        var expr = specification.ToExpression();
         var parameterExpr = Expression.Parameter(typeof(T));
 
         var body = Expression.Not(Expression.Invoke(expr, parameterExpr));

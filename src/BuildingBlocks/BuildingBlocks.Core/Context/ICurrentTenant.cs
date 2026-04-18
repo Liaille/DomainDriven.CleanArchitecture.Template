@@ -1,7 +1,7 @@
 ﻿namespace BuildingBlocks.Core.Context;
 
 /// <summary>
-/// 当前租户上下文 (满足28项架构目标的完整多租户能力)
+/// 当前租户上下文
 /// </summary>
 public interface ICurrentTenant
 {

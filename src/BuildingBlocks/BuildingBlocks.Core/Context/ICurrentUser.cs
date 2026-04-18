@@ -1,7 +1,7 @@
 ﻿namespace BuildingBlocks.Core.Context;
 
 /// <summary>
-/// 当前用户上下文 (最小必要字段，无 ID 类型耦合，无 RBAC 耦合)
+/// 当前用户上下文
 /// </summary>
 public interface ICurrentUser
 {

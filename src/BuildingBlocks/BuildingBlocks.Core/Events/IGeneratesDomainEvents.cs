@@ -7,9 +7,14 @@
 public interface IGeneratesDomainEvents
 {
     /// <summary>
-    /// 领域事件记录只读集合 (带事件顺序排列，保证有序性)
+    /// 纯净领域事件只读列表
     /// </summary>
-    IReadOnlyCollection<DomainEventRecord> DomainEvents { get; }
+    IReadOnlyList<IDomainEvent> DomainEvents { get; }
+
+    /// <summary>
+    /// 获取带顺序的事件记录只读列表 (供基础设施层分发时排序)
+    /// </summary>
+    IReadOnlyList<DomainEventRecord> GetDomainEventRecords();
 
     /// <summary>
     /// 清空所有领域事件
