@@ -11,6 +11,7 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks.Compliance/BuildingBlocks.Compliance.csproj" Id="3a690098-00e0-4b59-b60b-6ff2fb9d6dc0" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Configuration/BuildingBlocks.Configuration.csproj" Id="d5657a4e-c574-4baa-9565-41f5276fa340" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Core/BuildingBlocks.Core.csproj" Id="fbbd0828-fb37-4fda-86cf-dbe30a3db742" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/BuildingBlocks.CQRS.csproj" Id="e6f13d6f-6c13-42b5-8f86-8de9b0bfc900" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.EventBus/BuildingBlocks.EventBus.csproj" Id="3ba02959-a02b-410b-88a6-e1e32898911e" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.HttpClient/BuildingBlocks.HttpClient.csproj" Id="e32227a4-7126-42d7-87f8-8918f6d57178" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.IdGenerator/BuildingBlocks.IdGenerator.csproj" Id="19d88ba0-9881-4ec1-a272-f3d6aa17957f" />
