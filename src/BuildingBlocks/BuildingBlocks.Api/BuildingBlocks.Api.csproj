@@ -4,24 +4,35 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<!-- 彻底禁用.NET原生OpenAPI XML注释源代码生成器，从根源解决CS0200只读属性赋值报错 -->
+    <EnableOpenApiXmlComments>false</EnableOpenApiXmlComments>
+	<!-- 额外加固：完全关闭原生OpenAPI自动端点生成，避免和Swashbuckle二次冲突 -->
+    <DisableBuiltInOpenApiGenerator>true</DisableBuiltInOpenApiGenerator>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Middleware\" />
-    <Folder Include="Filters\" />
     <Folder Include="ResponseCompression\" />
     <Folder Include="Swagger\" />
     <Folder Include="ApiVersioning\" />
-    <Folder Include="Routing\" />
     <Folder Include="Cors\" />
     <Folder Include="SecurityHeaders\" />
-    <Folder Include="UnifiedResponse\" />
-    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Http" Version="8.1.1" />
+    <PackageReference Include="Carter" Version="10.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BuildingBlocks.Caching\BuildingBlocks.Caching.csproj" />
     <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+    <ProjectReference Include="..\BuildingBlocks.CQRS\BuildingBlocks.CQRS.csproj" />
     <ProjectReference Include="..\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj" />
     <ProjectReference Include="..\BuildingBlocks.Monitoring\BuildingBlocks.Monitoring.csproj" />
     <ProjectReference Include="..\BuildingBlocks.Security\BuildingBlocks.Security.csproj" />
