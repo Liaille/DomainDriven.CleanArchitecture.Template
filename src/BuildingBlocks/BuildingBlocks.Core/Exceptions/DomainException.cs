@@ -1,7 +1,7 @@
 ﻿namespace BuildingBlocks.Core.Exceptions;
 
 /// <summary>
-/// 领域异常 (用于业务规则不满足时抛出)
+/// 领域异常 (用于领域层内部业务规则不满足时抛出)
 /// </summary>
 public class DomainException : Exception
 {
