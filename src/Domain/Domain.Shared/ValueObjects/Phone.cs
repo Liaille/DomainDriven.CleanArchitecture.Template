@@ -9,17 +9,15 @@ namespace Domain.Shared.ValueObjects;
 /// </summary>
 public record Phone : ValueObject
 {
-    public string Number { get; } = string.Empty;
+    public string Number { get; }
 
-    private Phone() { }
+    private Phone(string number) => Number = number;
 
-    private Phone(string number)
+    public static Phone Create(string number)
     {
         if (string.IsNullOrWhiteSpace(number))
             throw new BusinessException(ErrorCode.ValueIsRequired);
 
-        Number = number;
+        return new Phone(number);
     }
-
-    public static Phone Create(string number) => new(number);
 }

@@ -20,6 +20,16 @@ public abstract class Entity : IEntity
 
         return GetKeys().SequenceEqual(other.GetKeys());
     }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as IEntity);
+    }
+
+    public override int GetHashCode()
+    {
+        return GetKeys().Aggregate(0, (hash, key) => HashCode.Combine(hash, key?.GetHashCode() ?? 0));
+    }
 }
 
 /// <summary>
@@ -47,6 +57,6 @@ public abstract class Entity<TKey> : Entity, IEntity<TKey>
     /// </summary>
     public override object[] GetKeys()
     {
-        return new object[] { Id! };
+        return [Id!];
     }
 }

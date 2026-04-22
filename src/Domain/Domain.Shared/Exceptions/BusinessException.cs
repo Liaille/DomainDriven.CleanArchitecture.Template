@@ -6,7 +6,7 @@ namespace Domain.Shared.Exceptions;
 /// <summary>
 /// 业务规则异常
 /// </summary>
-public class BusinessException : AppServiceException
+public class BusinessException : DomainException
 {
     /// <summary>
     /// 错误码

@@ -19,14 +19,4 @@ public static class DomainConstants
     /// 通用描述文本最大长度
     /// </summary>
     public const int MaxDescriptionLength = 500;
-
-    /// <summary>
-    /// 默认分页大小
-    /// </summary>
-    public const int DefaultPageSize = 10;
-
-    /// <summary>
-    /// 最大允许分页大小
-    /// </summary>
-    public const int MaxPageSize = 1000;
 }

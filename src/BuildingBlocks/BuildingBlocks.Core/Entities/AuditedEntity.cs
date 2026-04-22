@@ -7,7 +7,7 @@
 public abstract class AuditedEntity<TKey> : Entity<TKey>, IAuditableEntity
 {
     /// <summary>
-    /// 创建时间 (UTC)
+    /// 创建时间 (由基础设施层拦截器统一赋值)
     /// </summary>
     public DateTime CreationTime { get; set; }
 
@@ -28,6 +28,5 @@ public abstract class AuditedEntity<TKey> : Entity<TKey>, IAuditableEntity
 
     protected AuditedEntity()
     {
-        CreationTime = DateTime.UtcNow;
     }
 }
