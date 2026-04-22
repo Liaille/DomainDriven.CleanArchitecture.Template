@@ -52,6 +52,17 @@ public abstract class Specification<T> : ISpecification<T>
 }
 
 /// <summary>
+/// 参数替换表达式树访问者，用于合并表达式树
+/// </summary>
+internal class ParameterReplacer(ParameterExpression oldParameter, ParameterExpression newParameter) : ExpressionVisitor
+{
+    protected override Expression VisitParameter(ParameterExpression node)
+    {
+        return node == oldParameter ? newParameter : base.VisitParameter(node);
+    }
+}
+
+/// <summary>
 /// 与规约
 /// </summary>
 internal class AndSpecification<T>(Specification<T> left, Specification<T> right) : Specification<T>
@@ -65,14 +76,13 @@ internal class AndSpecification<T>(Specification<T> left, Specification<T> right
     {
         var leftExpr = left.ToExpression();
         var rightExpr = right.ToExpression();
-        var parameterExpr = Expression.Parameter(typeof(T));
 
-        var body = Expression.AndAlso(
-            Expression.Invoke(leftExpr, parameterExpr),
-            Expression.Invoke(rightExpr, parameterExpr)
-        );
+        var parameter = Expression.Parameter(typeof(T), "x");
+        var leftBody = new ParameterReplacer(leftExpr.Parameters[0], parameter).Visit(leftExpr.Body);
+        var rightBody = new ParameterReplacer(rightExpr.Parameters[0], parameter).Visit(rightExpr.Body);
 
-        return Expression.Lambda<Func<T, bool>>(body, parameterExpr);
+        var body = Expression.AndAlso(leftBody, rightBody);
+        return Expression.Lambda<Func<T, bool>>(body, parameter);
     }
 }
 
@@ -90,14 +100,13 @@ internal class OrSpecification<T>(Specification<T> left, Specification<T> right)
     {
         var leftExpr = left.ToExpression();
         var rightExpr = right.ToExpression();
-        var parameterExpr = Expression.Parameter(typeof(T));
 
-        var body = Expression.OrElse(
-            Expression.Invoke(leftExpr, parameterExpr),
-            Expression.Invoke(rightExpr, parameterExpr)
-        );
+        var parameter = Expression.Parameter(typeof(T), "x");
+        var leftBody = new ParameterReplacer(leftExpr.Parameters[0], parameter).Visit(leftExpr.Body);
+        var rightBody = new ParameterReplacer(rightExpr.Parameters[0], parameter).Visit(rightExpr.Body);
 
-        return Expression.Lambda<Func<T, bool>>(body, parameterExpr);
+        var body = Expression.OrElse(leftBody, rightBody);
+        return Expression.Lambda<Func<T, bool>>(body, parameter);
     }
 }
 
@@ -114,10 +123,9 @@ internal class NotSpecification<T>(Specification<T> specification) : Specificati
     public override Expression<Func<T, bool>> ToExpression()
     {
         var expr = specification.ToExpression();
-        var parameterExpr = Expression.Parameter(typeof(T));
+        var parameter = Expression.Parameter(typeof(T), "x");
+        var body = new ParameterReplacer(expr.Parameters[0], parameter).Visit(expr.Body);
 
-        var body = Expression.Not(Expression.Invoke(expr, parameterExpr));
-
-        return Expression.Lambda<Func<T, bool>>(body, parameterExpr);
+        return Expression.Lambda<Func<T, bool>>(Expression.Not(body), parameter);
     }
 }

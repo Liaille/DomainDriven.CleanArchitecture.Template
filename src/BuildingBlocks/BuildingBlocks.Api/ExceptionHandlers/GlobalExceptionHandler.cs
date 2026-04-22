@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Text.Json;
-using ApplicationException = BuildingBlocks.Core.Exceptions.ApplicationException;
+using AppServiceException = BuildingBlocks.Core.Exceptions.AppServiceException;
 
 namespace BuildingBlocks.Api.ExceptionHandlers;
 
@@ -63,7 +63,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
         {
             NotFoundException notFoundEx => ((int)HttpStatusCode.NotFound, notFoundEx.Message, null),
             DomainException domainEx => ((int)HttpStatusCode.BadRequest, domainEx.Message, null),
-            ApplicationException appEx => ((int)HttpStatusCode.BadRequest, appEx.Message, null),
+            AppServiceException appEx => ((int)HttpStatusCode.BadRequest, appEx.Message, null),
             UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Unauthorized access", null),
             ValidationException validationEx => ((int)HttpStatusCode.UnprocessableEntity, "Parameter validation failed", validationEx.Message),
             FluentValidation.ValidationException fluentEx => ((int)HttpStatusCode.UnprocessableEntity, "Parameter validation failed", fluentEx.Errors),

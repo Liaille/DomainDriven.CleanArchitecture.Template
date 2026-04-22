@@ -12,8 +12,7 @@ public static class Guard
     /// <param name="paramName">参数名称</param>
     public static void NotNull<T>(T value, string paramName)
     {
-        if (value == null)
-            throw new ArgumentNullException(paramName);
+        ArgumentNullException.ThrowIfNull(value, paramName);
     }
 
     /// <summary>
@@ -21,8 +20,7 @@ public static class Guard
     /// </summary>
     public static void NotNullOrEmpty(string value, string paramName)
     {
-        if (string.IsNullOrEmpty(value))
-            throw new ArgumentException("Parameter cannot be null or empty.", paramName);
+        ArgumentException.ThrowIfNullOrEmpty(value, paramName);
     }
 
     /// <summary>

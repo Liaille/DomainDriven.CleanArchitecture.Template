@@ -22,4 +22,3 @@ public interface IDomainEvent : INotification
     /// </summary>
     string EventType { get; }
 }
-

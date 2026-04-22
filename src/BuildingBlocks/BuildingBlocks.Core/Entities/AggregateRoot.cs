@@ -22,6 +22,7 @@ public abstract class AggregateRoot<TKey> : Entity<TKey>, IAggregateRoot<TKey>, 
     /// 领域事件只读列表
     /// </summary>
     public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents
+        .OrderBy(record => record.EventOrder)
         .Select(record => record.EventData)
         .ToList()
         .AsReadOnly();
@@ -30,7 +31,11 @@ public abstract class AggregateRoot<TKey> : Entity<TKey>, IAggregateRoot<TKey>, 
     /// 获取带执行顺序的领域事件记录只读列表 (供基础设施层分发时排序)
     /// </summary>
     /// <returns></returns>
-    public IReadOnlyList<DomainEventRecord> GetDomainEventRecords() => _domainEvents.AsReadOnly();
+    public IReadOnlyList<DomainEventRecord> GetDomainEventRecords() => 
+        _domainEvents
+        .OrderBy(record => record.EventOrder)
+        .ToList()
+        .AsReadOnly();
 
     protected AggregateRoot()
     {

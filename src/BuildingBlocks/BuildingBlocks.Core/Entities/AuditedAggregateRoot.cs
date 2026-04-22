@@ -4,7 +4,7 @@
 /// 带审计字段的聚合根基类 (包含创建、修改审计信息)
 /// </summary>
 /// <typeparam name="TKey">聚合根主键类型</typeparam>
-public abstract class AuditedAggregateRoot<TKey> : AggregateRoot<TKey>
+public abstract class AuditedAggregateRoot<TKey> : AggregateRoot<TKey>, IAuditableEntity
 {
     /// <summary>
     /// 创建时间 (UTC)

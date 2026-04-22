@@ -4,7 +4,7 @@
 /// 带审计字段的实体基类 (用于聚合根内的子实体)
 /// </summary>
 /// <typeparam name="TKey">主键类型</typeparam>
-public abstract class AuditedEntity<TKey> : Entity<TKey>
+public abstract class AuditedEntity<TKey> : Entity<TKey>, IAuditableEntity
 {
     /// <summary>
     /// 创建时间 (UTC)

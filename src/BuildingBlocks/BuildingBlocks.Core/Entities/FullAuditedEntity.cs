@@ -4,7 +4,7 @@
 /// 完整审计实体 (包含软删除，用于聚合根内的子实体)
 /// </summary>
 /// <typeparam name="TKey">主键类型</typeparam>
-public abstract class FullAuditedEntity<TKey> : AuditedEntity<TKey>
+public abstract class FullAuditedEntity<TKey> : AuditedEntity<TKey>, IFullAuditableEntity
 {
     /// <summary>
     /// 是否删除

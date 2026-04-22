@@ -40,7 +40,7 @@ public static class PersistenceServiceCollectionExtensions
         services.AddScoped(typeof(IRepository<,>), typeof(EfCoreRepository<,,>));
 
         // 注册工作单元
-        services.AddScoped(typeof(IUnitOfWork), typeof(EfCoreUnitOfWork<TDbContext>));
+        //services.AddScoped(typeof(IUnitOfWork), typeof(EfCoreUnitOfWork<TDbContext>));
 
         return services;
     }
