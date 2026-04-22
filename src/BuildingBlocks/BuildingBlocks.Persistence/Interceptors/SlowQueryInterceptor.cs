@@ -8,8 +8,8 @@ namespace BuildingBlocks.Persistence.Interceptors;
 /// EF Core 慢查询拦截器 (记录执行超时的SQL语句)
 /// </summary>
 /// <param name="logger">日志实例</param>
-/// <param name="slowQueryThresholdMs">慢查询阈值 (单位:毫秒,默认500ms)</param>
-public class SlowQueryInterceptor(ILogger<SlowQueryInterceptor> logger, int slowQueryThresholdMs = 500) : DbCommandInterceptor
+/// <param name="slowQueryThresholdMs">慢查询阈值 (单位:毫秒,默认1000ms)</param>
+public class SlowQueryInterceptor(ILogger<SlowQueryInterceptor> logger, int slowQueryThresholdMs = 1000) : DbCommandInterceptor
 {
     /// <summary>
     /// 同步执行查询后拦截
@@ -27,6 +27,24 @@ public class SlowQueryInterceptor(ILogger<SlowQueryInterceptor> logger, int slow
     {
         CheckSlowQuery(command, eventData.Duration);
         return base.ReaderExecutedAsync(command, eventData, result, cancellationToken);
+    }
+
+    /// <summary>
+    /// 执行非查询后同步拦截
+    /// </summary>
+    public override int NonQueryExecuted(DbCommand command, CommandExecutedEventData eventData, int result)
+    {
+        CheckSlowQuery(command, eventData.Duration);
+        return base.NonQueryExecuted(command, eventData, result);
+    }
+
+    /// <summary>
+    /// 执行非查询后异步拦截
+    /// </summary>
+    public override ValueTask<int> NonQueryExecutedAsync(DbCommand command, CommandExecutedEventData eventData, int result, CancellationToken cancellationToken = default)
+    {
+        CheckSlowQuery(command, eventData.Duration);
+        return base.NonQueryExecutedAsync(command, eventData, result, cancellationToken);
     }
 
     /// <summary>

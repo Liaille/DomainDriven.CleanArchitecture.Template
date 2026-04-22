@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EfCore\" />
-    <Folder Include="AuditFields\" />
-    <Folder Include="MultiTenancy\" />
-    <Folder Include="ReadWriteSplitting\" />
-    <Folder Include="Sharding\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.6" />
   </ItemGroup>

@@ -10,24 +10,42 @@ namespace BuildingBlocks.Persistence.Extensions;
 public static class ModelBuilderExtensions
 {
     /// <summary>
-    /// 全局配置软删除查询过滤器
+    /// 全局配置软删除过滤
     /// </summary>
     /// <param name="modelBuilder">模型构建器</param>
-    public static void ApplySoftDeleteFilter(this ModelBuilder modelBuilder)
+    public static ModelBuilder ApplySoftDeleteFilter(this ModelBuilder modelBuilder)
     {
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
-            // 仅对完整审计实体应用软删除过滤器
-            if (typeof(FullAuditedEntity<object>).IsAssignableFrom(entityType.ClrType)
-                || typeof(FullAuditedAggregateRoot<object>).IsAssignableFrom(entityType.ClrType))
+            if (typeof(ISoftDeletableEntity).IsAssignableFrom(entityType.ClrType))
             {
                 var parameter = Expression.Parameter(entityType.ClrType, "e");
-                var property = Expression.Property(parameter, nameof(FullAuditedEntity<>.IsDeleted));
+                var property = Expression.Property(parameter, nameof(ISoftDeletableEntity.IsDeleted));
                 var condition = Expression.Equal(property, Expression.Constant(false));
                 var lambda = Expression.Lambda(condition, parameter);
 
-                modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+                entityType.SetQueryFilter(lambda);
             }
         }
+
+        return modelBuilder;
+    }
+
+    /// <summary>
+    /// 全局配置多租户标记
+    /// </summary>
+    /// <param name="modelBuilder">模型构建器</param>
+    public static ModelBuilder ApplyMultiTenantFilter(this ModelBuilder modelBuilder)
+    {
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            if (typeof(IMultiTenantEntity).IsAssignableFrom(entityType.ClrType))
+            {
+                // 多租户过滤在拦截器中动态注入，此处仅标记实体支持多租户
+                entityType.AddAnnotation("IsMultiTenantEntity", true);
+            }
+        }
+
+        return modelBuilder;
     }
 }

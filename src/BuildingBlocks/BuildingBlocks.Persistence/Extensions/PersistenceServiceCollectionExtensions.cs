@@ -1,7 +1,7 @@
-﻿using BuildingBlocks.Core.Repositories;
+﻿using BuildingBlocks.Core.SpecificationPattern;
 using BuildingBlocks.Core.UnitOfWork;
 using BuildingBlocks.Persistence.Interceptors;
-using BuildingBlocks.Persistence.Repository;
+using BuildingBlocks.Persistence.Specification;
 using BuildingBlocks.Persistence.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,14 +13,22 @@ namespace BuildingBlocks.Persistence.Extensions;
 /// </summary>
 public static class PersistenceServiceCollectionExtensions
 {
+    /// <summary>
+    /// 添加 EF Core 持久化基础设施
+    /// </summary>
+    /// <typeparam name="TDbContext">业务 DbContext 类型</typeparam>
+    /// <param name="services">服务集合</param>
+    /// <param name="optionsAction">DbContext 配置委托</param>
+    /// <returns>服务集合</returns>
     public static IServiceCollection AddEfCorePersistence<TDbContext>(
         this IServiceCollection services,
         Action<DbContextOptionsBuilder> optionsAction)
         where TDbContext : DbContext
     {
-        // 注册拦截器
+        // 注册EF Core拦截器
         services.AddScoped<AuditingInterceptor>();
         services.AddScoped<SoftDeleteInterceptor>();
+        services.AddScoped<MultiTenantInterceptor>();
         services.AddScoped<SlowQueryInterceptor>();
 
         // 注册DbContext
@@ -31,16 +39,15 @@ public static class PersistenceServiceCollectionExtensions
             options.AddInterceptors(
                 sp.GetRequiredService<AuditingInterceptor>(),
                 sp.GetRequiredService<SoftDeleteInterceptor>(),
+                sp.GetRequiredService<MultiTenantInterceptor>(),
                 sp.GetRequiredService<SlowQueryInterceptor>());
         });
 
-        // 注册仓储
-        services.AddScoped(typeof(IReadOnlyRepository<,>), typeof(EfCoreReadOnlyRepository<,,>));
-        services.AddScoped(typeof(IBasicRepository<,>), typeof(EfCoreBasicRepository<,,>));
-        services.AddScoped(typeof(IRepository<,>), typeof(EfCoreRepository<,,>));
+        // 注册规约执行器
+        services.AddScoped<ISpecificationEvaluator, SpecificationEvaluator>();
 
         // 注册工作单元
-        //services.AddScoped(typeof(IUnitOfWork), typeof(EfCoreUnitOfWork<TDbContext>));
+        services.AddScoped<IUnitOfWork, EfCoreUnitOfWork<TDbContext>>();
 
         return services;
     }

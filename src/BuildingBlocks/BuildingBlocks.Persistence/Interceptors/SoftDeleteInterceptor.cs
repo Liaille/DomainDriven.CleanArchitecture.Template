@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 namespace BuildingBlocks.Persistence.Interceptors;
 
 /// <summary>
-/// EF Core 软删除拦截器 (将删除操作转换为更新IsDeleted字段)
+/// EF Core 软删除拦截器 (将删除操作转换为更新 IsDeleted 字段，并自动填充删除人、删除时间)
 /// </summary>
-public class SoftDeleteInterceptor : SaveChangesInterceptor
+/// <param name="currentUser">当前用户上下文</param>
+public class SoftDeleteInterceptor(ICurrentUser currentUser) : SaveChangesInterceptor
 {
     /// <summary>
     /// 同步保存时拦截
@@ -36,21 +37,24 @@ public class SoftDeleteInterceptor : SaveChangesInterceptor
     /// <param name="dbContext">数据库上下文</param>
     private void ApplySoftDelete(DbContext dbContext)
     {
+        var now = DateTime.UtcNow;
+        var userId = currentUser.IsAuthenticated ? currentUser.Id : null;
+
         foreach (var entry in dbContext.ChangeTracker.Entries())
         {
-            // 仅处理删除状态的完整审计实体
+            // 仅处理删除状态且实现了软删除接口的实体
             if (entry.State is not EntityState.Deleted) continue;
+            if (entry.Entity is not ISoftDeletableEntity softDeletable) continue;
 
-            if (entry.Entity is FullAuditedEntity<object> fullAuditedEntity)
-            {
-                entry.State = EntityState.Modified;
-                fullAuditedEntity.IsDeleted = true;
-            }
+            // 将物理删除转换为逻辑删除（更新状态）
+            entry.State = EntityState.Modified;
+            softDeletable.IsDeleted = true;
 
-            if (entry.Entity is FullAuditedAggregateRoot<object> fullAuditedAggregateRoot)
+            // 填充审计字段：删除时间、删除人
+            if (entry.Entity is IFullAuditableEntity fullAuditable)
             {
-                entry.State = EntityState.Modified;
-                fullAuditedAggregateRoot.IsDeleted = true;
+                fullAuditable.DeletionTime = now;
+                fullAuditable.DeleterId = userId;
             }
         }
     }

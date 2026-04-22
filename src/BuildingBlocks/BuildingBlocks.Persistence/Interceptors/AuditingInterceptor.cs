@@ -45,44 +45,20 @@ public class AuditingInterceptor(ICurrentUser currentUser) : SaveChangesIntercep
             // 处理新增实体
             if (entry.State is EntityState.Added)
             {
-                if (entry.Entity is AuditedEntity<object> auditedEntity)
+                if (entry.Entity is IAuditableEntity auditable)
                 {
-                    auditedEntity.CreationTime = now;
-                    auditedEntity.CreatorId = userId;
-                }
-
-                if (entry.Entity is AuditedAggregateRoot<object> auditedAggregateRoot)
-                {
-                    auditedAggregateRoot.CreationTime = now;
-                    auditedAggregateRoot.CreatorId = userId;
+                    auditable.CreationTime = now;
+                    auditable.CreatorId = userId;
                 }
             }
 
             // 处理修改实体
             if (entry.State is EntityState.Modified)
             {
-                if (entry.Entity is AuditedEntity<object> auditedEntity)
+                if (entry.Entity is IAuditableEntity auditable)
                 {
-                    auditedEntity.LastModificationTime = now;
-                    auditedEntity.LastModifierId = userId;
-                }
-
-                if (entry.Entity is AuditedAggregateRoot<object> auditedAggregateRoot)
-                {
-                    auditedAggregateRoot.LastModificationTime = now;
-                    auditedAggregateRoot.LastModifierId = userId;
-                }
-
-                if (entry.Entity is FullAuditedEntity<object> fullAuditedEntity && fullAuditedEntity.IsDeleted)
-                {
-                    fullAuditedEntity.DeletionTime = now;
-                    fullAuditedEntity.DeleterId = userId;
-                }
-
-                if (entry.Entity is FullAuditedAggregateRoot<object> fullAuditedAggregateRoot && fullAuditedAggregateRoot.IsDeleted)
-                {
-                    fullAuditedAggregateRoot.DeletionTime = now;
-                    fullAuditedAggregateRoot.DeleterId = userId;
+                    auditable.LastModificationTime = now;
+                    auditable.LastModifierId = userId;
                 }
             }
         }
