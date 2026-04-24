@@ -1,16 +1,18 @@
 ﻿using Elastic.Channels;
 using Elastic.Ingest.Elasticsearch;
+using System.ComponentModel.DataAnnotations;
 
 namespace BuildingBlocks.Logging.Configuration;
 
 /// <summary>
 /// Elasticsearch 输出配置
 /// </summary>
-public class ElasticsearchLoggingSinkOptions
+public class SerilogElasticsearchSinkOptions
 {
     /// <summary>
     /// ES集群节点地址数组（支持单节点/多节点集群）
     /// </summary>
+    [Required(ErrorMessage = "Elasticsearch节点地址不能为空")]
     public string[] NodeUrls { get; set; } = [];
 
     /// <summary>
@@ -46,7 +48,7 @@ public class ElasticsearchLoggingSinkOptions
     /// <summary>
     /// Basic用户名密码认证配置
     /// </summary>
-    public BasicAuthOptions? BasicAuth { get; set; }
+    public SerilogElasticsearchAuthOptions? BasicAuth { get; set; }
 
     /// <summary>
     /// API Key认证配置（ES8+生产推荐）
@@ -77,7 +79,7 @@ public class ElasticsearchLoggingSinkOptions
 /// <summary>
 /// Basic认证配置
 /// </summary>
-public class BasicAuthOptions
+public class SerilogElasticsearchAuthOptions
 {
     /// <summary>
     /// 用户名

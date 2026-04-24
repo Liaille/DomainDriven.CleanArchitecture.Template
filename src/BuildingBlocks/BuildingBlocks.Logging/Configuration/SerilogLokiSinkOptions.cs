@@ -1,15 +1,17 @@
 ﻿using Serilog.Sinks.Grafana.Loki;
+using System.ComponentModel.DataAnnotations;
 
 namespace BuildingBlocks.Logging.Configuration;
 
 /// <summary>
 /// Loki 输出配置
 /// </summary>
-public class GrafanaLokiLoggingSinkOptions
+public class SerilogLokiSinkOptions
 {
     /// <summary>
     /// Loki 服务地址
     /// </summary>
+    [Required(ErrorMessage = "Loki服务地址不能为空")]
     public string Url { get; set; } = string.Empty;
 
     /// <summary>

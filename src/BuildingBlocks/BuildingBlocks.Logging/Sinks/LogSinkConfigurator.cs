@@ -26,7 +26,7 @@ public static class LogSinkConfigurator
     /// <param name="loggerConfig">Serilog配置构建器</param>
     /// <param name="options">日志输出配置选项</param>
     /// <returns>配置了所有日志输出持久化端的日志构建器</returns>
-    public static LoggerConfiguration ConfigureAllSinks(this LoggerConfiguration loggerConfig, LoggingSinkOptions options)
+    public static LoggerConfiguration ConfigureAllSinks(this LoggerConfiguration loggerConfig, SerilogSinkOptions options)
     {
         ArgumentNullException.ThrowIfNull(options, nameof(options));
 
@@ -52,7 +52,7 @@ public static class LogSinkConfigurator
     /// <param name="loggerConfig">Serilog配置构建器</param>
     /// <param name="options">文件输出配置选项</param>
     /// <returns>配置了文件输出的日志构建器</returns>
-    public static LoggerConfiguration WriteToFile(this LoggerConfiguration loggerConfig, FileLoggingSinkOptions options)
+    public static LoggerConfiguration WriteToFile(this LoggerConfiguration loggerConfig, SerilogFileSinkOptions options)
     {
         ArgumentNullException.ThrowIfNull(options, nameof(options));
 
@@ -69,7 +69,7 @@ public static class LogSinkConfigurator
     /// <param name="loggerConfig">Serilog配置构建器</param>
     /// <param name="options">Elasticsearch日志输出配置选项</param>
     /// <returns>配置了Elasticsearch输出的日志构建器</returns>
-    public static LoggerConfiguration WriteToElasticsearch(this LoggerConfiguration loggerConfig, ElasticsearchLoggingSinkOptions? options)
+    public static LoggerConfiguration WriteToElasticsearch(this LoggerConfiguration loggerConfig, SerilogElasticsearchSinkOptions? options)
     {
         if (options is null || options.NodeUrls.Length == 0) return loggerConfig;
 
@@ -153,7 +153,7 @@ public static class LogSinkConfigurator
     /// <param name="loggerConfig">Serilog配置构建器</param>
     /// <param name="options">Grafana Loki日志输出配置选项</param>
     /// <returns>配置了Grafana Loki日志输出的日志构建器</returns>
-    public static LoggerConfiguration WriteToGrafanaLoki(this LoggerConfiguration loggerConfig, GrafanaLokiLoggingSinkOptions? options)
+    public static LoggerConfiguration WriteToGrafanaLoki(this LoggerConfiguration loggerConfig, SerilogLokiSinkOptions? options)
     {
         if (options is null || string.IsNullOrEmpty(options.Url)) return loggerConfig;
 
