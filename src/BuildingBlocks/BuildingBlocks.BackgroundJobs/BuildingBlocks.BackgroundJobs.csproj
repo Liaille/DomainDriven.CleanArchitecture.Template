@@ -12,7 +12,10 @@
     <Folder Include="DelayedJobs\" />
     <Folder Include="JobQueue\" />
     <Folder Include="JobState\" />
-    <Folder Include="BackgroundServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.7" />
   </ItemGroup>
 
   <ItemGroup>
