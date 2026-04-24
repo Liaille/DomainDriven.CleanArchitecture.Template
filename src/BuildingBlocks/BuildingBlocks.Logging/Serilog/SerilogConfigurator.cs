@@ -1,14 +1,9 @@
-﻿using BuildingBlocks.Logging.AuditLogging;
-using BuildingBlocks.Logging.BusinessLogging;
-using BuildingBlocks.Logging.Configuration;
+﻿using BuildingBlocks.Logging.Configuration;
 using BuildingBlocks.Logging.Sinks;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
 
 namespace BuildingBlocks.Logging.Serilog;
 
@@ -53,15 +48,4 @@ public static class SerilogConfigurator
 
         return logger;
     }
-}
-
-/// <summary>
-/// 日志模块 JSON 序列化上下文 (AOT兼容)
-/// </summary>
-[JsonSerializable(typeof(AuditOperationEvent))]
-[JsonSerializable(typeof(BusinessLogEvent))]
-[JsonSerializable(typeof(Dictionary<string, object>))]
-public partial class LoggingJsonContext : JsonSerializerContext
-{
-    
 }
