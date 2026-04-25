@@ -26,6 +26,7 @@
     <ProjectReference Include="..\..\Application\Application\Application.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Api\BuildingBlocks.Api.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.AppInitializer\BuildingBlocks.AppInitializer.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.EntityFrameworkCore\Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>

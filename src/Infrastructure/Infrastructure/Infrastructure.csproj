@@ -14,6 +14,7 @@
     <ProjectReference Include="..\..\Application\Application.Contracts\Application.Contracts.csproj" />
     <ProjectReference Include="..\..\Application\Application\Application.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj" />
   </ItemGroup>
 
 </Project>
