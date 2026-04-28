@@ -12,7 +12,14 @@ public class OpenTelemetryOptions
     /// </summary>
     public bool Enabled { get; set; } = true;
 
+    /// <summary>
+    /// 是否启用 ASP.NET Core 链路追踪
+    /// </summary>
     public bool EnableAspNetCoreInstrumentation { get; set; }
+
+    /// <summary>
+    /// 是否启用 HttpClient 链路追踪
+    /// </summary>
     public bool EnableHttpClientInstrumentation { get; set; }
 
     /// <summary>
