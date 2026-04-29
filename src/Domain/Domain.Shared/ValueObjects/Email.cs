@@ -1,5 +1,4 @@
-﻿using BuildingBlocks.Core.ValueObjects;
-using Domain.Shared.Errors;
+﻿using Domain.Shared.Errors;
 using Domain.Shared.Exceptions;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,7 +7,7 @@ namespace Domain.Shared.ValueObjects;
 /// <summary>
 /// 电子邮箱值对象
 /// </summary>
-public record Email : ValueObject
+public record Email
 {
     public string Value { get; }
 
