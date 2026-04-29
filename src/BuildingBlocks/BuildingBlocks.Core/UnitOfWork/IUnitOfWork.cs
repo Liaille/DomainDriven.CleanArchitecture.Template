@@ -79,7 +79,7 @@ public interface IUnitOfWork : IAsyncDisposable, IDisposable
     /// <typeparam name="TKey">聚合根主键数据类型</typeparam>
     /// <returns>对应实体的只读仓储实例</returns>
     IReadOnlyRepository<TEntity, TKey> GetReadOnlyRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>;
+        where TEntity : class, IAggregateRoot<TKey>;
 
     /// <summary>
     /// 获取指定聚合根的基础写入仓储实例
@@ -93,7 +93,7 @@ public interface IUnitOfWork : IAsyncDisposable, IDisposable
     /// <typeparam name="TKey">聚合根主键数据类型</typeparam>
     /// <returns>对应实体的基础写入仓储实例</returns>
     IBasicRepository<TEntity, TKey> GetBasicRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>;
+        where TEntity : class, IAggregateRoot<TKey>;
 
     /// <summary>
     /// 获取指定聚合根的完整功能仓储实例
@@ -107,5 +107,5 @@ public interface IUnitOfWork : IAsyncDisposable, IDisposable
     /// <typeparam name="TKey">聚合根主键数据类型</typeparam>
     /// <returns>对应实体的全功能仓储实例</returns>
     IRepository<TEntity, TKey> GetRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>;
+        where TEntity : class, IAggregateRoot<TKey>;
 }

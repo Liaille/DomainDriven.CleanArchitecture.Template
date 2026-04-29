@@ -65,7 +65,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
             DomainException domainEx => ((int)HttpStatusCode.BadRequest, domainEx.Message, null),
             AppServiceException appEx => ((int)HttpStatusCode.BadRequest, appEx.Message, null),
             UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Unauthorized access", null),
-            ValidationException validationEx => ((int)HttpStatusCode.UnprocessableEntity, "Parameter validation failed", validationEx.Message),
+            System.ComponentModel.DataAnnotations.ValidationException validationEx => ((int)HttpStatusCode.UnprocessableEntity, "Parameter validation failed", validationEx.Message),
             FluentValidation.ValidationException fluentEx => ((int)HttpStatusCode.UnprocessableEntity, "Parameter validation failed", fluentEx.Errors),
             _ => ((int)HttpStatusCode.InternalServerError, "Server internal error (Please contact system administrator)", null)
         };

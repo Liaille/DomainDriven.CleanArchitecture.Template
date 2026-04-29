@@ -16,12 +16,12 @@ public interface IRequestContext
     string? TraceId { get; }
 
     /// <summary>
-    /// 客户端 IP 地址 (支持代理场景，优先读取 X-Forwarded-For)
-    /// </summary>
-    string? ClientIp { get; }
-
-    /// <summary>
     /// 请求开始UTC时间戳 (用于性能监控、慢请求追踪与超时分析)
     /// </summary>
     DateTime StartTime { get; }
+
+    /// <summary>
+    /// 客户端 IP 地址 (支持代理场景，优先读取 X-Forwarded-For)
+    /// </summary>
+    string? ClientIp { get; }
 }

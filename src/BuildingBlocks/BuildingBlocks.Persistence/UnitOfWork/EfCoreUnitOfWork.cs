@@ -124,7 +124,7 @@ public class EfCoreUnitOfWork<TDbContext>(
     /// <typeparam name="TEntity">聚合根类型</typeparam>
     /// <typeparam name="TKey">主键类型</typeparam>
     public IReadOnlyRepository<TEntity, TKey> GetReadOnlyRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>
+        where TEntity : class, IAggregateRoot<TKey>
     {
         return GetOrCreateRepository<TEntity, TKey, EfCoreReadOnlyRepository<TEntity, TKey, TDbContext>>();
     }
@@ -135,7 +135,7 @@ public class EfCoreUnitOfWork<TDbContext>(
     /// <typeparam name="TEntity">聚合根类型</typeparam>
     /// <typeparam name="TKey">主键类型</typeparam>
     public IBasicRepository<TEntity, TKey> GetBasicRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>
+        where TEntity : class, IAggregateRoot<TKey>
     {
         return GetOrCreateRepository<TEntity, TKey, EfCoreBasicRepository<TEntity, TKey, TDbContext>>();
     }
@@ -146,7 +146,7 @@ public class EfCoreUnitOfWork<TDbContext>(
     /// <typeparam name="TEntity">聚合根类型</typeparam>
     /// <typeparam name="TKey">主键类型</typeparam>
     public IRepository<TEntity, TKey> GetRepository<TEntity, TKey>()
-        where TEntity : AggregateRoot<TKey>
+        where TEntity : class, IAggregateRoot<TKey>
     {
         return GetOrCreateRepository<TEntity, TKey, EfCoreRepository<TEntity, TKey, TDbContext>>();
     }
@@ -155,7 +155,7 @@ public class EfCoreUnitOfWork<TDbContext>(
     /// 内部仓储缓存创建方法 (避免重复实例化)
     /// </summary>
     private TRepository GetOrCreateRepository<TEntity, TKey, TRepository>()
-        where TEntity : AggregateRoot<TKey>
+        where TEntity : class, IAggregateRoot<TKey>
         where TRepository : class
     {
         var entityType = typeof(TEntity);
