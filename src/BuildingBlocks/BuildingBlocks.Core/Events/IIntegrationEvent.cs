@@ -19,4 +19,9 @@ public interface IIntegrationEvent
     /// 事件类型 (完整类名，用于反序列化、路由、审计)
     /// </summary>
     string EventType { get; }
+
+    /// <summary>
+    /// 事件版本号 (默认值为 "1"，需要版本控制时显式指定)
+    /// </summary>
+    IntegrationEventVersion Version { get; }
 }

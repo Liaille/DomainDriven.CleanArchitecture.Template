@@ -4,11 +4,10 @@ namespace BuildingBlocks.Core.SpecificationPattern;
 
 /// <summary>
 /// 规约执行器接口 (将规约应用到查询对象)
+/// <para>职责: 将 ISpecification 规约转换为可执行查询</para>
+/// <para>实现: 由具体持久化层 (EF Core/SqlSugar)提供</para>
 /// </summary>
-/// <remarks>
-/// 职责：将 ISpecification 规约转换为可执行查询
-/// 实现：由具体持久化层 (EF Core/SqlSugar)提供
-/// </remarks>
+
 public interface ISpecificationEvaluator
 {
     /// <summary>

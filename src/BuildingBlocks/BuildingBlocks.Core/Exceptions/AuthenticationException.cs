@@ -2,7 +2,7 @@
 
 /// <summary>
 /// 认证异常
-/// 适用场景：未登录、登录已过期、令牌无效等身份认证失败场景
+/// <para>适用场景: 未登录、登录已过期、令牌无效等身份认证失败场景</para>
 /// </summary>
 public class AuthenticationException : Exception
 {

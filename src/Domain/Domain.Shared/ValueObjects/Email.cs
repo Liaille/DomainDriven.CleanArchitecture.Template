@@ -18,14 +18,14 @@ public record Email
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    /// <exception cref="BusinessException"></exception>
+    /// <exception cref="DomainBusinessException"></exception>
     public static Email Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new BusinessException(ErrorCode.ValueIsRequired);
+            throw new DomainBusinessException(ErrorCode.ValueIsRequired);
 
         if (!new EmailAddressAttribute().IsValid(value))
-            throw new BusinessException(ErrorCode.InvalidFormat);
+            throw new DomainBusinessException(ErrorCode.InvalidFormat);
 
         return new Email(value);
     }

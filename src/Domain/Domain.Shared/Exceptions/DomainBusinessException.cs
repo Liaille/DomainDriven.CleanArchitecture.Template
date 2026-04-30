@@ -9,7 +9,7 @@ namespace Domain.Shared.Exceptions;
 /// 对应错误码：20000+ 业务错误码段
 /// 强制约束：仅能在Domain层抛出，禁止在其他层抛出此异常
 /// </summary>
-public class BusinessException : DomainException
+public class DomainBusinessException : DomainException
 {
     /// <summary>
     /// 错误码
@@ -20,7 +20,7 @@ public class BusinessException : DomainException
     /// 初始化业务规则异常
     /// </summary>
     /// <param name="errorCode">错误码枚举</param>
-    public BusinessException(ErrorCode errorCode)
+    public DomainBusinessException(ErrorCode errorCode)
         : base(ErrorMessage.GetMessage(errorCode))
     {
         ErrorCode = errorCode;
@@ -31,7 +31,7 @@ public class BusinessException : DomainException
     /// </summary>
     /// <param name="errorCode">错误码枚举</param>
     /// <param name="message">自定义异常消息</param>
-    public BusinessException(ErrorCode errorCode, string message)
+    public DomainBusinessException(ErrorCode errorCode, string message)
         : base(message)
     {
         ErrorCode = errorCode;
@@ -43,7 +43,7 @@ public class BusinessException : DomainException
     /// <param name="errorCode">错误码枚举</param>
     /// <param name="message">自定义异常消息</param>
     /// <param name="innerException">内部异常对象</param>
-    public BusinessException(ErrorCode errorCode, string message, Exception innerException)
+    public DomainBusinessException(ErrorCode errorCode, string message, Exception innerException)
         : base(message, innerException)
     {
         ErrorCode = errorCode;

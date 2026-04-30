@@ -2,7 +2,7 @@
 
 /// <summary>
 /// 授权异常
-/// 适用场景：已通过身份认证，但权限不足无法执行操作
+/// <para>适用场景: 已通过身份认证，但权限不足无法执行操作</para>
 /// </summary>
 public class AuthorizationException : Exception
 {

@@ -1,13 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
 
 namespace BuildingBlocks.Core.Common;
 
 /// <summary>
 /// 参数校验守卫类 (用于前置条件校验)
-/// 设计目的：消除重复的if判断，提供统一的参数校验入口
-/// 使用场景：方法入口处对参数进行前置校验
+/// 设计目的: 消除重复的if判断，提供统一的参数校验入口
+/// 使用场景: 方法入口处对参数进行前置校验
 /// </summary>
 [DebuggerStepThrough] // 调试时自动跳过此类，不进入
 public static partial class Guard
@@ -17,7 +16,7 @@ public static partial class Guard
     /// 确保对象不为 null
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名（自动通过CallerArgumentExpression获取）</param>
+    /// <param name="paramName">参数名 (自动通过CallerArgumentExpression获取)</param>
     /// <exception cref="ArgumentNullException">当value为null时抛出</exception>
     public static void NotNull<T>(T? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -50,11 +49,11 @@ public static partial class Guard
 
     /// <summary>
     /// 确保字符串长度在 [minLength, maxLength] 范围内
-    /// 前置条件：字符串不能为null、空或仅空白字符
+    /// 前置条件: 字符串不能为null、空或仅空白字符
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="minLength">最小允许长度（包含）</param>
-    /// <param name="maxLength">最大允许长度（包含）</param>
+    /// <param name="minLength">最小允许长度 (包含)</param>
+    /// <param name="maxLength">最大允许长度 (包含)</param>
     /// <param name="paramName">参数名</param>
     /// <exception cref="ArgumentOutOfRangeException">当字符串长度超出范围时抛出</exception>
     public static void StringLength(string? value, int minLength, int maxLength,
@@ -75,10 +74,10 @@ public static partial class Guard
 
     /// <summary>
     /// 确保字符串长度不超过最大长度
-    /// 前置条件：字符串不能为null、空或仅空白字符
+    /// 前置条件: 字符串不能为null、空或仅空白字符
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="maxLength">最大允许长度（包含）</param>
+    /// <param name="maxLength">最大允许长度 (包含)</param>
     /// <param name="paramName">参数名</param>
     /// <exception cref="ArgumentOutOfRangeException">当字符串长度超出最大长度时抛出</exception>
     public static void StringMaxLength(string? value, int maxLength,
@@ -178,8 +177,8 @@ public static partial class Guard
     /// 确保数值在指定范围内 [min, max]
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="min">最小值（包含）</param>
-    /// <param name="max">最大值（包含）</param>
+    /// <param name="min">最小值 (包含)</param>
+    /// <param name="max">最大值 (包含)</param>
     /// <param name="paramName">参数名</param>
     /// <exception cref="ArgumentOutOfRangeException">当value超出范围时抛出</exception>
     public static void InRange(int value, int min, int max, [CallerArgumentExpression(nameof(value))] string paramName = "")
@@ -254,7 +253,7 @@ public static partial class Guard
     }
     #endregion
 
-    #region 高级：枚举校验
+    #region 高级: 枚举校验
     /// <summary>
     /// 确保枚举值是定义的有效值
     /// </summary>

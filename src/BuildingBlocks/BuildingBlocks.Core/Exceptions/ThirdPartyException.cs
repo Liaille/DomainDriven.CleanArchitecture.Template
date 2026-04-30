@@ -2,7 +2,7 @@
 
 /// <summary>
 /// 第三方服务异常
-/// 适用场景：外部服务调用、推送渠道、第三方接口调用失败
+/// <para>适用场景: 外部服务调用、推送渠道、第三方接口调用失败</para>
 /// </summary>
 public class ThirdPartyException : Exception
 {

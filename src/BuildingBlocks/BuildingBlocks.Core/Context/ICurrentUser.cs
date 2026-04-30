@@ -12,7 +12,7 @@ public interface ICurrentUser
     bool IsAuthenticated { get; }
 
     /// <summary>
-    /// 用户唯一标识（弱类型通用兼容）
+    /// 用户唯一标识 (弱类型通用兼容)
     /// </summary>
     object? Id { get; }
 
@@ -22,17 +22,17 @@ public interface ICurrentUser
     string? UserName { get; }
 
     /// <summary>
-    /// 组织 ID（用于部门/组织范围的数据级授权）
+    /// 组织 ID (用于部门/组织范围的数据级授权)
     /// </summary>
     object? OrgId { get; }
 
     /// <summary>
-    /// 角色列表（RBAC 授权使用）
+    /// 角色列表 (RBAC 授权使用)
     /// </summary>
     IReadOnlyList<string> Roles { get; }
 
     /// <summary>
-    /// 权限列表（细粒度功能授权）
+    /// 权限列表 (细粒度功能授权)
     /// </summary>
     IReadOnlyList<string> Permissions { get; }
 
@@ -42,7 +42,7 @@ public interface ICurrentUser
     bool IsHostAdmin { get; }
 
     /// <summary>
-    /// 模拟操作者 ID（管理员代用户操作时用于审计）
+    /// 模拟操作者 ID (管理员代用户操作时用于审计)
     /// </summary>
     object? ImpersonatedBy { get; }
 }

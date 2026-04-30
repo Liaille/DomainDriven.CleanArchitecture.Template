@@ -25,11 +25,11 @@ public record Phone
     /// </summary>
     /// <param name="number">待验证的电话号码字符串</param>
     /// <returns>验证通过的Phone值对象</returns>
-    /// <exception cref="BusinessException">验证失败时抛出业务异常</exception>
+    /// <exception cref="DomainBusinessException">验证失败时抛出业务异常</exception>
     public static Phone Create(string number)
     {
         if (string.IsNullOrWhiteSpace(number))
-            throw new BusinessException(ErrorCode.ValueIsRequired);
+            throw new DomainBusinessException(ErrorCode.ValueIsRequired);
 
         return new Phone(number);
     }

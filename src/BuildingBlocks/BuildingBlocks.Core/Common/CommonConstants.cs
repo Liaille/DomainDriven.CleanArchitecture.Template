@@ -24,13 +24,13 @@ public static class CommonConstants
     #region 日期时间相关
     /// <summary>
     /// 默认日期格式化字符串
-    /// 标准格式：年-月-日 (示例：2025-12-25)
+    /// 标准格式: 年-月-日 (示例: 2025-12-25)
     /// </summary>
     public const string DefaultDateFormat = "yyyy-MM-dd";
 
     /// <summary>
     /// 默认日期时间格式化字符串
-    /// 标准格式：年-月-日 时:分:秒 (示例：2025-12-25 14:30:00)
+    /// 标准格式: 年-月-日 时:分:秒 (示例: 2025-12-25 14:30:00)
     /// </summary>
     public const string DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss";
 

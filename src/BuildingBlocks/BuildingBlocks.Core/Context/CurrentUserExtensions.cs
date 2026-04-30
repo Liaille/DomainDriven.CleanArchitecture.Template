@@ -1,7 +1,4 @@
-﻿using BuildingBlocks.Core.Exceptions;
-using System.ComponentModel;
-
-namespace BuildingBlocks.Core.Context;
+﻿namespace BuildingBlocks.Core.Context;
 
 /// <summary>
 /// 当前用户上下文扩展方法
@@ -75,7 +72,7 @@ public static class CurrentUserExtensions
 
         try
         {
-            // 常用类型快速转换（性能优化）
+            // 常用类型快速转换 (性能优化)
             return typeof(T) switch
             {
                 Type t when t == typeof(Guid) => (T)(object)Guid.Parse(value.ToString()!),

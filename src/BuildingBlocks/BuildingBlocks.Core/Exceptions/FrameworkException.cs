@@ -2,7 +2,7 @@
 
 /// <summary>
 /// 系统异常
-/// 适用场景：框架级、基础设施级错误，配置错误、资源不可用等
+/// <para>适用场景: 框架级、基础设施级错误，配置错误、资源不可用等</para>
 /// </summary>
 public class FrameworkException : Exception
 {
