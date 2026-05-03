@@ -2,6 +2,7 @@
 
 /// <summary>
 /// 性别类型
+/// <para>遵循 ISO 5218 标准</para>
 /// </summary>
 public enum GenderType
 {
@@ -18,5 +19,10 @@ public enum GenderType
     /// <summary>
     /// 女性
     /// </summary>
-    Female = 2
+    Female = 2,
+
+    /// <summary>
+    /// 不适用
+    /// </summary>
+    NotApplicable = 9
 }

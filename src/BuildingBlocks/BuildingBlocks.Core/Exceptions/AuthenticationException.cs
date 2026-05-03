@@ -1,26 +1,30 @@
-﻿namespace BuildingBlocks.Core.Exceptions;
+﻿using BuildingBlocks.Core.ErrorCodes;
+
+namespace BuildingBlocks.Core.Exceptions;
 
 /// <summary>
-/// 认证异常
-/// <para>适用场景: 未登录、登录已过期、令牌无效等身份认证失败场景</para>
+/// 身份认证异常
+/// <para>使用场景: 未登录、Token 无效/过期/伪造、身份验证失败</para>
+/// <para>错误码: 10101 AuthenticationFailed</para>
 /// </summary>
-public class AuthenticationException : Exception
+public class AuthenticationException : BusinessException
 {
     /// <summary>
     /// 初始化认证异常
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    public AuthenticationException(string message) : base(message)
+    /// <param name="technicalMessage">技术描述</param>
+    public AuthenticationException(string technicalMessage)
+        : base(SystemErrorCodes.AuthenticationFailed, technicalMessage)
     {
     }
 
     /// <summary>
-    /// 初始化带内部异常的认证异常
+    /// 初始化认证异常（带内部异常）
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    /// <param name="innerException">内部异常对象</param>
-    public AuthenticationException(string message, Exception innerException)
-        : base(message, innerException)
+    /// <param name="technicalMessage">技术描述</param>
+    /// <param name="innerException">内部异常</param>
+    public AuthenticationException(string technicalMessage, Exception innerException)
+        : base(SystemErrorCodes.AuthenticationFailed, technicalMessage, innerException)
     {
     }
 }

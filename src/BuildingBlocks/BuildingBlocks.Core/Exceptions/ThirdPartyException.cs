@@ -1,10 +1,13 @@
-﻿namespace BuildingBlocks.Core.Exceptions;
+﻿using BuildingBlocks.Core.ErrorCodes;
+
+namespace BuildingBlocks.Core.Exceptions;
 
 /// <summary>
-/// 第三方服务异常
-/// <para>适用场景: 外部服务调用、推送渠道、第三方接口调用失败</para>
+/// 第三方服务调用异常
+/// <para>使用场景: 调用外部接口、HTTP、支付、短信、推送等第三方服务失败</para>
+/// <para>错误码: 30000 ThirdPartyServiceFailed</para>
 /// </summary>
-public class ThirdPartyException : Exception
+public class ThirdPartyException : BusinessException
 {
     /// <summary>
     /// 第三方服务名称
@@ -14,21 +17,22 @@ public class ThirdPartyException : Exception
     /// <summary>
     /// 初始化第三方服务异常
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    /// <param name="serviceName">第三方服务名称</param>
-    public ThirdPartyException(string message, string serviceName) : base(message)
+    /// <param name="serviceName">服务名</param>
+    /// <param name="technicalMessage">技术描述</param>
+    public ThirdPartyException(string serviceName, string technicalMessage)
+        : base(ThirdPartyErrorCodes.ThirdPartyServiceInvokeFailed, technicalMessage)
     {
         ServiceName = serviceName;
     }
 
     /// <summary>
-    /// 初始化带内部异常的第三方服务异常
+    /// 初始化第三方服务异常（带内部异常）
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    /// <param name="serviceName">第三方服务名称</param>
-    /// <param name="innerException">内部异常对象</param>
-    public ThirdPartyException(string message, string serviceName, Exception innerException)
-        : base(message, innerException)
+    /// <param name="serviceName">服务名</param>
+    /// <param name="technicalMessage">技术描述</param>
+    /// <param name="innerException">内部异常</param>
+    public ThirdPartyException(string serviceName, string technicalMessage, Exception innerException)
+        : base(ThirdPartyErrorCodes.ThirdPartyServiceInvokeFailed, technicalMessage, innerException)
     {
         ServiceName = serviceName;
     }

@@ -1,64 +1,38 @@
 ﻿namespace BuildingBlocks.Core.Exceptions;
 
 /// <summary>
-/// 业务异常基类
-/// <para>适用场景: 业务规则校验失败、业务流程不满足等正常业务异常</para>
-/// <para>强制约束: 不触发告警，仅记录 Info 级别日志</para>
+/// 业务异常基类 (所有可预期异常的统一基类)
+/// <para>核心职责: 标识这是一个可预期的业务/领域/参数/第三方/认证授权异常，并承载唯一错误标识</para>
+/// <para>设计原则: 纯数据载体，不包含任何 UI 文案逻辑、日志逻辑</para>
+/// <para>强制约束: 不触发告警，仅记录 Info/Warn 级别日志</para>
 /// </summary>
 public class BusinessException : Exception
 {
     /// <summary>
-    /// 业务错误码
+    /// 业务错误码 (唯一错误标识，int 类型，统一错误码体系)
     /// </summary>
-    public string ErrorCode { get; }
-
-    /// <summary>
-    /// 用户友好提示信息 (生产环境返回给前端)
-    /// </summary>
-    public string UserFriendlyMessage { get; }
-
-    /// <summary>
-    /// 内部技术详情 (仅开发环境可见)
-    /// </summary>
-    public string? InternalDetails { get; }
+    public int ErrorCode { get; }
 
     /// <summary>
     /// 初始化业务异常
     /// </summary>
-    /// <param name="errorCode">业务错误码</param>
-    /// <param name="userFriendlyMessage">用户友好提示</param>
-    public BusinessException(string errorCode, string userFriendlyMessage)
-        : base(userFriendlyMessage)
+    /// <param name="errorCode">业务错误码 (int 类型)</param>
+    /// <param name="technicalMessage">技术描述消息 (仅用于基类 Exception.Message，满足调试需求)</param>
+    public BusinessException(int errorCode, string technicalMessage)
+        : base(technicalMessage)
     {
         ErrorCode = errorCode;
-        UserFriendlyMessage = userFriendlyMessage;
-    }
-
-    /// <summary>
-    /// 初始化带内部详情的业务异常
-    /// </summary>
-    /// <param name="errorCode">业务错误码</param>
-    /// <param name="userFriendlyMessage">用户友好提示</param>
-    /// <param name="internalDetails">内部技术详情</param>
-    public BusinessException(string errorCode, string userFriendlyMessage, string internalDetails)
-        : base($"{userFriendlyMessage} | Internal Details: {internalDetails}")
-    {
-        ErrorCode = errorCode;
-        UserFriendlyMessage = userFriendlyMessage;
-        InternalDetails = internalDetails;
     }
 
     /// <summary>
     /// 初始化带内部异常的业务异常
     /// </summary>
-    /// <param name="errorCode">业务错误码</param>
-    /// <param name="userFriendlyMessage">用户友好提示</param>
+    /// <param name="errorCode">业务错误码 (int 类型)</param>
+    /// <param name="technicalMessage">技术描述消息 (仅用于基类 Exception.Message，满足调试需求)</param>
     /// <param name="innerException">内部异常</param>
-    public BusinessException(string errorCode, string userFriendlyMessage, Exception innerException)
-        : base(userFriendlyMessage, innerException)
+    public BusinessException(int errorCode, string technicalMessage, Exception innerException)
+        : base(technicalMessage, innerException)
     {
         ErrorCode = errorCode;
-        UserFriendlyMessage = userFriendlyMessage;
-        InternalDetails = innerException.Message;
     }
 }

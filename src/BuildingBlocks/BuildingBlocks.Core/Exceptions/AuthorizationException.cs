@@ -1,26 +1,30 @@
-﻿namespace BuildingBlocks.Core.Exceptions;
+﻿using BuildingBlocks.Core.ErrorCodes;
+
+namespace BuildingBlocks.Core.Exceptions;
 
 /// <summary>
-/// 授权异常
-/// <para>适用场景: 已通过身份认证，但权限不足无法执行操作</para>
+/// 权限授权异常
+/// <para>使用场景: 已登录，但权限不足、禁止访问、禁止操作</para>
+/// <para>错误码: 10102 AuthorizationFailed</para>
 /// </summary>
-public class AuthorizationException : Exception
+public class AuthorizationException : BusinessException
 {
     /// <summary>
     /// 初始化授权异常
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    public AuthorizationException(string message) : base(message)
+    /// <param name="technicalMessage">技术描述</param>
+    public AuthorizationException(string technicalMessage)
+        : base(SystemErrorCodes.AuthorizationFailed, technicalMessage)
     {
     }
 
     /// <summary>
-    /// 初始化带内部异常的授权异常
+    /// 初始化授权异常（带内部异常）
     /// </summary>
-    /// <param name="message">异常描述消息</param>
-    /// <param name="innerException">内部异常对象</param>
-    public AuthorizationException(string message, Exception innerException)
-        : base(message, innerException)
+    /// <param name="technicalMessage">技术描述</param>
+    /// <param name="innerException">内部异常</param>
+    public AuthorizationException(string technicalMessage, Exception innerException)
+        : base(SystemErrorCodes.AuthorizationFailed, technicalMessage, innerException)
     {
     }
 }
