@@ -3,11 +3,10 @@
 /// <summary>
 /// Saga 状态枚举
 /// <para>核心定位: 定义 Saga 状态机的所有可能状态，保证 Saga 执行的可追踪性</para>
-/// <list type="table">
-/// 状态流转规则
-/// <item>Pending → Running → Completed</item>
-/// <item>Pending → Running → Failed → Compensating → Compensated</item>
-/// <item>Pending → Running → Failed → Compensating → CompensationFailed (需人工干预)</item>
+/// <list type="bullet">
+/// <item>Pending → Running → Completed (成功路径)</item>
+/// <item>Pending → Running → Failed → Compensating → Compensated (补偿成功路径)</item>
+/// <item>Pending → Running → Failed → Compensating → CompensationFailed (补偿失败，需人工干预)</item>
 /// </list>
 /// </summary>
 public enum SagaStatus
