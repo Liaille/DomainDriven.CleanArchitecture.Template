@@ -10,7 +10,7 @@ namespace BuildingBlocks.Core.Events;
 /// <list type="number">
 /// <item>所有业务属性必须使用 init-only 赋值</item>
 /// <item>新增字段必须提供默认值，保证向下兼容</item>
-/// <item>禁止删除已有字段 (可标记 [Obsolete])</item>
+/// <item>禁止直接删除已有字段 (可标记 [Obsolete]，至少保留2个版本的兼容期)</item>
 /// <item>禁止修改已有字段类型 (可新增字段替代)</item>
 /// </list>
 /// </remark>
