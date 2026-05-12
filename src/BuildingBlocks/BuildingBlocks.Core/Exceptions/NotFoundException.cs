@@ -10,7 +10,7 @@ namespace BuildingBlocks.Core.Exceptions;
 public class NotFoundException : BusinessException
 {
     /// <summary>
-    /// 资源类型（如：Order、User、Product）
+    /// 资源类型 (如：Order、User、Product)
     /// </summary>
     public string? ResourceType { get; }
 
@@ -29,7 +29,7 @@ public class NotFoundException : BusinessException
     }
 
     /// <summary>
-    /// 初始化资源不存在异常（带资源信息）
+    /// 初始化资源不存在异常 (带资源信息)
     /// </summary>
     /// <param name="resourceType">资源类型</param>
     /// <param name="resourceId">资源ID</param>
@@ -42,7 +42,7 @@ public class NotFoundException : BusinessException
     }
 
     /// <summary>
-    /// 初始化资源不存在异常（带内部异常）
+    /// 初始化资源不存在异常 (带内部异常)
     /// </summary>
     /// <param name="technicalMessage">技术描述</param>
     /// <param name="innerException">内部异常</param>

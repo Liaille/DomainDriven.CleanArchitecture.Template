@@ -170,13 +170,13 @@ public static class LogSinkConfigurator
             labels: labels,
             // 最低日志级别
             restrictedToMinimumLevel: LogEventLevel.Information,
-            // 批量配置（可选，使用官方默认值）
+            // 批量配置 (可选，使用官方默认值)
             batchPostingLimit: options.BatchPostingLimit ?? 1000,
             queueLimit: options.QueueLimit,
             period: options.Period.HasValue ? TimeSpan.FromSeconds(options.Period.Value) : null,
-            // 认证配置（可选）
+            // 认证配置 (可选)
             credentials: options.Credentials,
-            // Tenant ID（可选）
+            // Tenant ID (可选)
             tenant: options.Tenant
         );
     }

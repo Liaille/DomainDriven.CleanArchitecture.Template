@@ -27,7 +27,7 @@ public class ValidationException : BusinessException
     }
 
     /// <summary>
-    /// 初始化参数校验异常（带详细错误字典）
+    /// 初始化参数校验异常 (带详细错误字典)
     /// </summary>
     /// <param name="message">通用提示</param>
     /// <param name="errors">详细错误集合</param>
@@ -38,7 +38,7 @@ public class ValidationException : BusinessException
     }
 
     /// <summary>
-    /// 初始化参数校验异常（带内部异常）
+    /// 初始化参数校验异常 (带内部异常)
     /// </summary>
     /// <param name="message">通用提示</param>
     /// <param name="innerException">内部异常</param>

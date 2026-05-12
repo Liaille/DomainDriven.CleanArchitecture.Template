@@ -53,7 +53,7 @@ public enum BusinessErrorCode
 
     #region 日期范围错误 20300 ~ 20399
     /// <summary>
-    /// 日期范围无效（开始时间 > 结束时间）
+    /// 日期范围无效 (开始时间 > 结束时间)
     /// </summary>
     InvalidDateRange = 20300
     #endregion

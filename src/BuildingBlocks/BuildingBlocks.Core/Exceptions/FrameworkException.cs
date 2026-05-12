@@ -16,7 +16,7 @@ public class FrameworkException : Exception
     }
 
     /// <summary>
-    /// 初始化框架异常（包含内部异常）
+    /// 初始化框架异常 (包含内部异常)
     /// </summary>
     /// <param name="message">异常描述</param>
     /// <param name="innerException">内部异常</param>

@@ -10,13 +10,13 @@ namespace BuildingBlocks.Logging.Configuration;
 public class SerilogElasticsearchSinkOptions
 {
     /// <summary>
-    /// ES集群节点地址数组（支持单节点/多节点集群）
+    /// ES集群节点地址数组 (支持单节点/多节点集群)
     /// </summary>
     [Required(ErrorMessage = "Elasticsearch节点地址不能为空")]
     public string[] NodeUrls { get; set; } = [];
 
     /// <summary>
-    /// 数据流前缀（官方标准DataStream命名：{prefix}-{type}-{dataset}）
+    /// 数据流前缀 (官方标准DataStream命名：{prefix}-{type}-{dataset})
     /// </summary>
     public string DataStreamPrefix { get; set; } = "logs";
 
@@ -26,7 +26,7 @@ public class SerilogElasticsearchSinkOptions
     public string DataStreamType { get; set; } = "dotnet";
 
     /// <summary>
-    /// 数据流数据集（一般为应用/服务名称）
+    /// 数据流数据集 (一般为应用/服务名称)
     /// </summary>
     public string DataStreamDataset { get; set; } = "app";
 
@@ -41,7 +41,7 @@ public class SerilogElasticsearchSinkOptions
     public BootstrapMethod BootstrapMethod { get; set; } = BootstrapMethod.Failure;
 
     /// <summary>
-    /// 是否启用集群嗅探（多节点集群推荐开启）
+    /// 是否启用集群嗅探 (多节点集群推荐开启)
     /// </summary>
     public bool UseSniffing { get; set; } = false;
 
@@ -51,17 +51,17 @@ public class SerilogElasticsearchSinkOptions
     public SerilogElasticsearchAuthOptions? BasicAuth { get; set; }
 
     /// <summary>
-    /// API Key认证配置（ES8+生产推荐）
+    /// API Key认证配置 (ES8+生产推荐)
     /// </summary>
     public string? ApiKey { get; set; }
 
     /// <summary>
-    /// 服务端证书指纹（自签名证书场景使用）
+    /// 服务端证书指纹 (自签名证书场景使用)
     /// </summary>
     public string? CertificateFingerprint { get; set; }
 
     /// <summary>
-    /// HTTP请求超时时间（秒）
+    /// HTTP请求超时时间 (秒)
     /// </summary>
     public int RequestTimeoutSeconds { get; set; } = 5;
 

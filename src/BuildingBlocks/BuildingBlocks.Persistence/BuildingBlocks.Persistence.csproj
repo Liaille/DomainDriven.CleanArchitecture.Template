@@ -15,4 +15,10 @@
     <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+    <Folder Include="Specification\" />
+    <Folder Include="UnitOfWork\" />
+  </ItemGroup>
+
 </Project>

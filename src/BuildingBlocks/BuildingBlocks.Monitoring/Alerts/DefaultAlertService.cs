@@ -366,8 +366,8 @@ public class DefaultAlertService(
     /// <param name="level">告警级别</param>
     /// <param name="title">告警标题</param>
     /// <param name="message">告警消息</param>
-    /// <param name="tags">标签（可选）</param>
-    /// <param name="exception">异常对象（可选）</param>
+    /// <param name="tags">标签 (可选)</param>
+    /// <param name="exception">异常对象 (可选)</param>
     /// <returns>HTML 格式的邮件正文</returns>
     private static string BuildEmailHtmlBody(
         string level,
@@ -522,7 +522,7 @@ public class DefaultAlertService(
     {
         StringBuilder sb = new();
 
-        // 标题（带颜色）
+        // 标题 (带颜色)
         var levelColor = level switch
         {
             "Info" => "info",

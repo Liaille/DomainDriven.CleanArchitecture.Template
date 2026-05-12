@@ -9,7 +9,7 @@ public static class GlobalizationConstants
 {
     /// <summary>
     /// 系统默认语言/区域文化编码
-    /// 系统全局默认使用简体中文（zh-CN）
+    /// 系统全局默认使用简体中文 (zh-CN)
     /// 影响日期格式、数字格式、货币格式、提示信息语言等展示效果
     /// </summary>
     public const string DefaultLanguage = "zh-CN";
@@ -23,14 +23,14 @@ public static class GlobalizationConstants
 
     /// <summary>
     /// 默认日期格式化字符串
-    /// 标准格式：年-月-日（示例：2026-05-03）
+    /// 标准格式：年-月-日 (示例：2026-05-03)
     /// 用于技术层面未指定格式时的默认日期展示
     /// </summary>
     public const string DefaultDateFormat = "yyyy-MM-dd";
 
     /// <summary>
     /// 默认日期时间格式化字符串
-    /// 标准格式：年-月-日 时:分:秒（示例：2026-05-03 14:30:00）
+    /// 标准格式：年-月-日 时:分:秒 (示例：2026-05-03 14:30:00)
     /// 用于技术层面未指定格式时的默认日期时间展示
     /// </summary>
     public const string DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss";

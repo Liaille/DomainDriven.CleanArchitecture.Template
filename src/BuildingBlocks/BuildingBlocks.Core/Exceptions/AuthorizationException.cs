@@ -19,7 +19,7 @@ public class AuthorizationException : BusinessException
     }
 
     /// <summary>
-    /// 初始化授权异常（带内部异常）
+    /// 初始化授权异常 (带内部异常)
     /// </summary>
     /// <param name="technicalMessage">技术描述</param>
     /// <param name="innerException">内部异常</param>

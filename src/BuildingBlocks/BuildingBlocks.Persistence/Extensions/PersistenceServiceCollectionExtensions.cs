@@ -1,8 +1,6 @@
 ﻿using BuildingBlocks.Core.SpecificationPattern;
 using BuildingBlocks.Core.UnitOfWork;
 using BuildingBlocks.Persistence.Interceptors;
-using BuildingBlocks.Persistence.Specification;
-using BuildingBlocks.Persistence.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -44,10 +42,10 @@ public static class PersistenceServiceCollectionExtensions
         });
 
         // 注册规约执行器
-        services.AddScoped<ISpecificationEvaluator, SpecificationEvaluator>();
+        
 
         // 注册工作单元
-        services.AddScoped<IUnitOfWork, EfCoreUnitOfWork<TDbContext>>();
+        
 
         return services;
     }

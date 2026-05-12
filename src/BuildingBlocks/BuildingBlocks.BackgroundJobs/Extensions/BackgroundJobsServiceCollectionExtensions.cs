@@ -38,7 +38,7 @@ public static class BackgroundJobsServiceCollectionExtensions
         Func<T, CancellationToken, Task> processItemAsync,
         int capacity = 0)
     {
-        // 注册特定类型的队列（覆盖泛型注册）
+        // 注册特定类型的队列 (覆盖泛型注册)
         services.AddSingleton<IAsyncTaskQueue<T>>(sp => new ChannelAsyncTaskQueue<T>(capacity));
 
         // 注册队列处理器为 BackgroundService

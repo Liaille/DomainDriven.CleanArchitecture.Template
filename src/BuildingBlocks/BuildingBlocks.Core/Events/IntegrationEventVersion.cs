@@ -144,6 +144,10 @@ public readonly record struct IntegrationEventVersion : IComparable<IntegrationE
         if (_semanticVersion is not null && other._semanticVersion is not null)
             return _semanticVersion.CompareTo(other._semanticVersion);
 
+        // 尝试解析为整数进行比较
+        if (int.TryParse(_value, out int thisInt) && int.TryParse(other._value, out int otherInt))
+            return thisInt.CompareTo(otherInt);
+
         return string.Compare(_value, other._value, StringComparison.Ordinal);
     }
 

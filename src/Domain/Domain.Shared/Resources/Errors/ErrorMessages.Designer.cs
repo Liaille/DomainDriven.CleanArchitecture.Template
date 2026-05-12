@@ -88,7 +88,7 @@ namespace Domain.Shared.Resources.Errors {
         }
         
         /// <summary>
-        ///   查找类似 日期范围无效（开始时间 &gt; 结束时间） 的本地化字符串。
+        ///   查找类似 日期范围无效 (开始时间 &gt; 结束时间) 的本地化字符串。
         /// </summary>
         public static string InvalidDateRange {
             get {

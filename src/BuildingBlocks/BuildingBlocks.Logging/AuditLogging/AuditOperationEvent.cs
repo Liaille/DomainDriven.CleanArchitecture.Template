@@ -3,13 +3,13 @@
 namespace BuildingBlocks.Logging.AuditLogging;
 
 /// <summary>
-/// 通用审计事件完整模型（全字段上下文）
+/// 通用审计事件完整模型 (全字段上下文)
 /// </summary>
 [JsonSerializable(typeof(AuditOperationEvent))]
 public partial record AuditOperationEvent
 {
     /// <summary>
-    /// 操作类型（Create/Update/Delete/Custom）
+    /// 操作类型 (Create/Update/Delete/Custom)
     /// </summary>
     public string OperationType { get; init; } = string.Empty;
 

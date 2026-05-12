@@ -12,7 +12,7 @@ namespace Domain.Shared.Exceptions;
 public class DomainBusinessException : BusinessException
 {
     /// <summary>
-    /// 业务错误码（枚举类型）
+    /// 业务错误码 (枚举类型)
     /// </summary>
     public BusinessErrorCode BusinessErrorCode { get; }
 

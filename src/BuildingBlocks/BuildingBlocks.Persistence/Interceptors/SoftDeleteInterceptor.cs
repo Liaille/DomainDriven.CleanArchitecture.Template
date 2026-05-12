@@ -46,7 +46,7 @@ public class SoftDeleteInterceptor(ICurrentUser currentUser) : SaveChangesInterc
             if (entry.State is not EntityState.Deleted) continue;
             if (entry.Entity is not ISoftDeletableEntity softDeletable) continue;
 
-            // 将物理删除转换为逻辑删除（更新状态）
+            // 将物理删除转换为逻辑删除 (更新状态)
             entry.State = EntityState.Modified;
             softDeletable.IsDeleted = true;
 

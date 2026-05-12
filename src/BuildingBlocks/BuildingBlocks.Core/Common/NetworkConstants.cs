@@ -8,14 +8,14 @@
 public static class NetworkConstants
 {
     /// <summary>
-    /// HTTP请求默认超时时间（单位：秒）
+    /// HTTP请求默认超时时间 (单位：秒)
     /// 接口调用默认30秒超时，防止请求长时间阻塞
     /// 可根据具体业务场景在调用端覆盖此配置
     /// </summary>
     public const int DefaultHttpTimeoutSeconds = 30;
 
     /// <summary>
-    /// HTTP客户端默认连接超时时间（单位：秒）
+    /// HTTP客户端默认连接超时时间 (单位：秒)
     /// 建立TCP连接的默认超时时间为10秒
     /// 避免连接尝试长时间等待
     /// </summary>

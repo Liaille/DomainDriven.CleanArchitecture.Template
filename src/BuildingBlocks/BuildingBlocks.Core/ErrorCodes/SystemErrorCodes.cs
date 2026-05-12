@@ -73,7 +73,7 @@ public static class SystemErrorCodes
     public const int ResourceLocked = 10202;
 
     /// <summary>
-    /// 数据并发冲突（乐观锁更新失败）
+    /// 数据并发冲突 (乐观锁更新失败)
     /// </summary>
     public const int ConcurrencyConflict = 10203;
     #endregion

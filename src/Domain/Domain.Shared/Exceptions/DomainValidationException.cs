@@ -14,14 +14,14 @@ public class DomainValidationException : BusinessException
     /// <summary>
     /// 初始化领域验证异常
     /// </summary>
-    /// <param name="technicalMessage">技术描述信息（仅用于日志/调试）</param>
+    /// <param name="technicalMessage">技术描述信息 (仅用于日志/调试)</param>
     public DomainValidationException(string technicalMessage)
         : base(SystemErrorCodes.InvalidParameter, technicalMessage)
     {
     }
 
     /// <summary>
-    /// 初始化领域验证异常（包含内部异常）
+    /// 初始化领域验证异常 (包含内部异常)
     /// </summary>
     /// <param name="technicalMessage">技术描述信息</param>
     /// <param name="innerException">内部异常</param>

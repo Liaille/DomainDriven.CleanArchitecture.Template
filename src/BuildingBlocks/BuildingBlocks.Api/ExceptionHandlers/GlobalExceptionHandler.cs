@@ -90,7 +90,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
             // 资源不存在异常：数据/聚合根未找到
             NotFoundException notFoundEx => ((int)HttpStatusCode.NotFound, notFoundEx.Message, null),
 
-            // 参数校验异常（自定义）
+            // 参数校验异常 (自定义)
             ValidationException validationEx => ((int)HttpStatusCode.UnprocessableEntity, "参数校验失败", validationEx.Errors),
 
             // FluentValidation 参数校验异常
@@ -102,7 +102,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
             // 第三方服务调用异常：支付、短信、外部接口调用失败
             ThirdPartyException => ((int)HttpStatusCode.BadGateway, "第三方服务调用失败", null),
 
-            // 所有业务异常基类（最后匹配，避免覆盖子类）
+            // 所有业务异常基类 (最后匹配，避免覆盖子类)
             BusinessException businessEx => ((int)HttpStatusCode.BadRequest, businessEx.Message, null),
 
             // 兜底未知系统异常

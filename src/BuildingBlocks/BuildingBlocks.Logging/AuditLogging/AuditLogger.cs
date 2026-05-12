@@ -29,7 +29,7 @@ public class AuditLogger(
     /// <param name="entityType">实体类型名称</param>
     /// <param name="entityId">实体唯一标识</param>
     /// <param name="newValue">创建后的实体数据</param>
-    /// <param name="operationDesc">操作描述（可选）</param>
+    /// <param name="operationDesc">操作描述 (可选)</param>
     public void LogEntityCreate(string entityType, string entityId, object newValue, string? operationDesc = null)
     {
         // 构建审计事件对象并调用通用记录方法
@@ -50,7 +50,7 @@ public class AuditLogger(
     /// <param name="entityId">实体唯一标识</param>
     /// <param name="oldValue">更新前的实体数据</param>
     /// <param name="newValue">更新后的实体数据</param>
-    /// <param name="operationDesc">操作描述（可选）</param>
+    /// <param name="operationDesc">操作描述 (可选)</param>
     public void LogEntityUpdate(string entityType, string entityId, object? oldValue, object newValue, string? operationDesc = null)
     {
         // 构建审计事件对象并调用通用记录方法
@@ -71,7 +71,7 @@ public class AuditLogger(
     /// <param name="entityType">实体类型名称</param>
     /// <param name="entityId">实体唯一标识</param>
     /// <param name="oldValue">删除前的实体数据</param>
-    /// <param name="operationDesc">操作描述（可选）</param>
+    /// <param name="operationDesc">操作描述 (可选)</param>
     public void LogEntityDelete(string entityType, string entityId, object? oldValue, string? operationDesc = null)
     {
         // 构建审计事件对象并调用通用记录方法
@@ -111,7 +111,7 @@ public class AuditLogger(
     /// <param name="entityType">实体类型名称</param>
     /// <param name="entityId">实体唯一主键</param>
     /// <param name="newValue">实体完整新数据</param>
-    /// <param name="operationDesc">自定义操作描述（可选）</param>
+    /// <param name="operationDesc">自定义操作描述 (可选)</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
     public async Task LogEntityCreateAsync(string entityType, string entityId, object newValue, string? operationDesc = null, CancellationToken cancellationToken = default)
@@ -131,13 +131,13 @@ public class AuditLogger(
     }
 
     /// <summary>
-    /// 异步记录实体更新审计日志（携带新旧值对比）
+    /// 异步记录实体更新审计日志 (携带新旧值对比)
     /// </summary>
     /// <param name="entityType">实体类型名称</param>
     /// <param name="entityId">实体唯一主键</param>
     /// <param name="oldValue">修改前原始数据</param>
     /// <param name="newValue">修改后最新数据</param>
-    /// <param name="operationDesc">自定义操作描述（可选）</param>
+    /// <param name="operationDesc">自定义操作描述 (可选)</param>
     /// <param name="cancellationToken">取消令牌</param>
     public async Task LogEntityUpdateAsync(string entityType, string entityId, object? oldValue, object newValue, string? operationDesc = null, CancellationToken cancellationToken = default)
     {
@@ -162,7 +162,7 @@ public class AuditLogger(
     /// <param name="entityType">实体类型名称</param>
     /// <param name="entityId">实体唯一主键</param>
     /// <param name="oldValue">删除前实体原始数据</param>
-    /// <param name="operationDesc">自定义操作描述（可选）</param>
+    /// <param name="operationDesc">自定义操作描述 (可选)</param>
     /// <param name="cancellationToken">取消令牌</param>
     public async Task LogEntityDeleteAsync(string entityType, string entityId, object? oldValue, string? operationDesc = null, CancellationToken cancellationToken = default)
     {
@@ -199,7 +199,7 @@ public class AuditLogger(
 
         LogContextEnricher.EnrichContext(auditEvent, currentUser, requestContext, currentTenant);
 
-        // 入队异步处理（await ValueTask，自动转 Task）
+        // 入队异步处理 (await ValueTask，自动转 Task)
         await taskQueue.QueueAsync(() =>
         {
             logger.LogInformation("EntityAuditLog: {@AuditEvent}", auditEvent);

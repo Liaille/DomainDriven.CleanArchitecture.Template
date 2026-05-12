@@ -26,7 +26,7 @@ public class ThirdPartyException : BusinessException
     }
 
     /// <summary>
-    /// 初始化第三方服务异常（带内部异常）
+    /// 初始化第三方服务异常 (带内部异常)
     /// </summary>
     /// <param name="serviceName">服务名</param>
     /// <param name="technicalMessage">技术描述</param>

@@ -127,7 +127,7 @@
     <value>数据格式无效</value>
   </data>
   <data name="InvalidDateRange" xml:space="preserve">
-    <value>日期范围无效（开始时间 &gt; 结束时间）</value>
+    <value>日期范围无效 (开始时间 &gt; 结束时间)</value>
   </data>
   <data name="InvalidStateTransition" xml:space="preserve">
     <value>不允许的状态转换</value>
