@@ -92,16 +92,16 @@ public record Address
         string? postalCode = null)
     {
         if (string.IsNullOrWhiteSpace(country))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "国家/地区不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "国家/地区不能为空");
 
         if (string.IsNullOrWhiteSpace(stateProvince))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "省/州/郡不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "省/州/郡不能为空");
 
         if (string.IsNullOrWhiteSpace(city))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "城市不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "城市不能为空");
 
         if (string.IsNullOrWhiteSpace(streetAddress))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "街道地址不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "街道地址不能为空");
 
         return new Address(
             country.Trim(),

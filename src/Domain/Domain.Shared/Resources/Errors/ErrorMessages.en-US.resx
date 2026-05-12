@@ -123,6 +123,12 @@
   <data name="CurrencyMismatch" xml:space="preserve">
     <value>Currency mismatch</value>
   </data>
+  <data name="DivisorMustBePositive" xml:space="preserve">
+    <value>Divisor must be greater than zero</value>
+  </data>
+  <data name="InsufficientFunds" xml:space="preserve">
+    <value>Insufficient funds</value>
+  </data>
   <data name="InvalidDataFormat" xml:space="preserve">
     <value>Invalid data format</value>
   </data>
@@ -131,6 +137,9 @@
   </data>
   <data name="InvalidStateTransition" xml:space="preserve">
     <value>Invalid state transition</value>
+  </data>
+  <data name="MultiplierCannotBeNegative" xml:space="preserve">
+    <value>Multiplier cannot be negative</value>
   </data>
   <data name="RequiredValueNotEmpty" xml:space="preserve">
     <value>Required field cannot be empty</value>

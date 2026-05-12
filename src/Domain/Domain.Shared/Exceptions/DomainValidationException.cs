@@ -1,5 +1,5 @@
-﻿using BuildingBlocks.Core.ErrorCodes;
-using BuildingBlocks.Core.Exceptions;
+﻿using BuildingBlocks.Core.Exceptions;
+using Domain.Shared.ErrorCodes;
 
 namespace Domain.Shared.Exceptions;
 
@@ -16,7 +16,7 @@ public class DomainValidationException : BusinessException
     /// </summary>
     /// <param name="technicalMessage">技术描述信息 (仅用于日志/调试)</param>
     public DomainValidationException(string technicalMessage)
-        : base(SystemErrorCodes.InvalidParameter, technicalMessage)
+        : base(BusinessErrorCodes.InvalidDataFormat, technicalMessage)
     {
     }
 
@@ -26,7 +26,7 @@ public class DomainValidationException : BusinessException
     /// <param name="technicalMessage">技术描述信息</param>
     /// <param name="innerException">内部异常</param>
     public DomainValidationException(string technicalMessage, Exception innerException)
-        : base(SystemErrorCodes.InvalidParameter, technicalMessage, innerException)
+        : base(BusinessErrorCodes.InvalidDataFormat, technicalMessage, innerException)
     {
     }
 }

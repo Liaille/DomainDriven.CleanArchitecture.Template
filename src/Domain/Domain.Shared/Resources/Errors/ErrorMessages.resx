@@ -123,6 +123,12 @@
   <data name="CurrencyMismatch" xml:space="preserve">
     <value>币种不匹配</value>
   </data>
+  <data name="DivisorMustBePositive" xml:space="preserve">
+    <value>除数必须大于0</value>
+  </data>
+  <data name="InsufficientFunds" xml:space="preserve">
+    <value>金额不足</value>
+  </data>
   <data name="InvalidDataFormat" xml:space="preserve">
     <value>数据格式无效</value>
   </data>
@@ -131,6 +137,9 @@
   </data>
   <data name="InvalidStateTransition" xml:space="preserve">
     <value>不允许的状态转换</value>
+  </data>
+  <data name="MultiplierCannotBeNegative" xml:space="preserve">
+    <value>乘数不能为负数</value>
   </data>
   <data name="RequiredValueNotEmpty" xml:space="preserve">
     <value>必填项不能为空</value>

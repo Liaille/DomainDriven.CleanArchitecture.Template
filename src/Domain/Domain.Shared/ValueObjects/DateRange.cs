@@ -45,14 +45,14 @@ public record DateRange
         if (enforceUtc)
         {
             if (startDate.Kind != DateTimeKind.Utc)
-                throw new DomainBusinessException(BusinessErrorCode.InvalidDataFormat, "开始日期必须使用 UTC 时间");
+                throw new DomainBusinessException(BusinessErrorCodes.InvalidDataFormat, "开始日期必须使用 UTC 时间");
 
             if (endDate.Kind != DateTimeKind.Utc)
-                throw new DomainBusinessException(BusinessErrorCode.InvalidDataFormat, "结束日期必须使用 UTC 时间");
+                throw new DomainBusinessException(BusinessErrorCodes.InvalidDataFormat, "结束日期必须使用 UTC 时间");
         }
 
         if (startDate > endDate)
-            throw new DomainBusinessException(BusinessErrorCode.InvalidDateRange, "开始日期不能晚于结束日期");
+            throw new DomainBusinessException(BusinessErrorCodes.InvalidDateRange, "开始日期不能晚于结束日期");
 
         return new DateRange(startDate, endDate);
     }

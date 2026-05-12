@@ -32,10 +32,10 @@ public record Email
     public static Email Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "邮箱地址不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "邮箱地址不能为空");
 
         if (!new EmailAddressAttribute().IsValid(value))
-            throw new DomainBusinessException(BusinessErrorCode.InvalidDataFormat, "邮箱地址格式不正确");
+            throw new DomainBusinessException(BusinessErrorCodes.InvalidDataFormat, "邮箱地址格式不正确");
 
         return new Email(value.Trim().ToLowerInvariant());
     }

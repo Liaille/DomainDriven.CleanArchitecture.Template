@@ -12,19 +12,13 @@ namespace Domain.Shared.Exceptions;
 public class DomainBusinessException : BusinessException
 {
     /// <summary>
-    /// 业务错误码 (枚举类型)
-    /// </summary>
-    public BusinessErrorCode BusinessErrorCode { get; }
-
-    /// <summary>
     /// 初始化领域业务异常
     /// </summary>
     /// <param name="errorCode">业务错误码</param>
     /// <param name="userFriendlyMessage">用户友好提示</param>
-    public DomainBusinessException(BusinessErrorCode errorCode, string userFriendlyMessage)
-        : base((int)errorCode, userFriendlyMessage)
+    public DomainBusinessException(int errorCode, string userFriendlyMessage)
+        : base(errorCode, userFriendlyMessage)
     {
-        BusinessErrorCode = errorCode;
     }
 
     /// <summary>
@@ -33,9 +27,8 @@ public class DomainBusinessException : BusinessException
     /// <param name="errorCode">业务错误码</param>
     /// <param name="userFriendlyMessage">用户友好提示</param>
     /// <param name="innerException">内部异常</param>
-    public DomainBusinessException(BusinessErrorCode errorCode, string userFriendlyMessage, Exception innerException)
-        : base((int)errorCode, userFriendlyMessage, innerException)
+    public DomainBusinessException(int errorCode, string userFriendlyMessage, Exception innerException)
+        : base(errorCode, userFriendlyMessage, innerException)
     {
-        BusinessErrorCode = errorCode;
     }
 }

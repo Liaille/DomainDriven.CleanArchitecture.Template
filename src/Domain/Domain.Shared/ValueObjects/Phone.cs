@@ -60,14 +60,14 @@ public partial record Phone
     public static Phone Create(string number)
     {
         if (string.IsNullOrWhiteSpace(number))
-            throw new DomainBusinessException(BusinessErrorCode.RequiredValueNotEmpty, "电话号码不能为空");
+            throw new DomainBusinessException(BusinessErrorCodes.RequiredValueNotEmpty, "电话号码不能为空");
 
         var cleanedNumber = number.Trim();
 
         // E.164 格式验证
         if (!_internationalPhoneRegex.IsMatch(cleanedNumber))
             throw new DomainBusinessException(
-                BusinessErrorCode.InvalidDataFormat,
+                BusinessErrorCodes.InvalidDataFormat,
                 "电话号码格式不正确，请使用 E.164 国际标准格式 (例如: +8613800138000)");
 
         return new Phone(cleanedNumber);

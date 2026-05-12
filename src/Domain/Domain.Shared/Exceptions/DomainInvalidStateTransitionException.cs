@@ -25,7 +25,7 @@ public class DomainInvalidStateTransitionException : DomainBusinessException
     /// <param name="currentState">当前状态</param>
     /// <param name="targetState">目标状态</param>
     public DomainInvalidStateTransitionException(string currentState, string targetState)
-        : base(BusinessErrorCode.InvalidStateTransition, "Invalid state transition")
+        : base(BusinessErrorCodes.InvalidStateTransition, "Invalid state transition")
     {
         CurrentState = currentState;
         TargetState = targetState;
@@ -38,7 +38,7 @@ public class DomainInvalidStateTransitionException : DomainBusinessException
     /// <param name="targetState">目标状态</param>
     /// <param name="message">自定义异常消息</param>
     public DomainInvalidStateTransitionException(string currentState, string targetState, string message)
-        : base(BusinessErrorCode.InvalidStateTransition, message)
+        : base(BusinessErrorCodes.InvalidStateTransition, message)
     {
         CurrentState = currentState;
         TargetState = targetState;

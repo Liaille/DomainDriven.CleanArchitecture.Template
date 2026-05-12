@@ -79,6 +79,24 @@ namespace Domain.Shared.Resources.Errors {
         }
         
         /// <summary>
+        ///   查找类似 除数必须大于0 的本地化字符串。
+        /// </summary>
+        public static string DivisorMustBePositive {
+            get {
+                return ResourceManager.GetString("DivisorMustBePositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 金额不足 的本地化字符串。
+        /// </summary>
+        public static string InsufficientFunds {
+            get {
+                return ResourceManager.GetString("InsufficientFunds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数据格式无效 的本地化字符串。
         /// </summary>
         public static string InvalidDataFormat {
@@ -102,6 +120,15 @@ namespace Domain.Shared.Resources.Errors {
         public static string InvalidStateTransition {
             get {
                 return ResourceManager.GetString("InvalidStateTransition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 乘数不能为负数 的本地化字符串。
+        /// </summary>
+        public static string MultiplierCannotBeNegative {
+            get {
+                return ResourceManager.GetString("MultiplierCannotBeNegative", resourceCulture);
             }
         }
         

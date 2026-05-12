@@ -16,7 +16,7 @@ public static partial class Guard
     /// 确保对象不为 null
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名 (自动通过CallerArgumentExpression获取)</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentNullException">当value为null时抛出</exception>
     public static void NotNull<T>(T? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -29,7 +29,7 @@ public static partial class Guard
     /// 确保字符串不为 null 或空
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentException">当value为null或空时抛出</exception>
     public static void NotNullOrEmpty(string? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -40,7 +40,7 @@ public static partial class Guard
     /// 确保字符串不为 null、空或仅空白字符
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentException">当value为null、空或仅空白字符时抛出</exception>
     public static void NotNullOrWhiteSpace(string? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -49,20 +49,17 @@ public static partial class Guard
 
     /// <summary>
     /// 确保字符串长度在 [minLength, maxLength] 范围内
-    /// 前置条件: 字符串不能为null、空或仅空白字符
     /// </summary>
     /// <param name="value">校验值</param>
     /// <param name="minLength">最小允许长度 (包含)</param>
     /// <param name="maxLength">最大允许长度 (包含)</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当字符串长度超出范围时抛出</exception>
     public static void StringLength(string? value, int minLength, int maxLength,
         [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
-        // 先确保字符串不为空
         NotNullOrWhiteSpace(value, paramName);
 
-        // 校验长度范围
         if (value!.Length < minLength || value.Length > maxLength)
         {
             throw new ArgumentOutOfRangeException(
@@ -74,19 +71,16 @@ public static partial class Guard
 
     /// <summary>
     /// 确保字符串长度不超过最大长度
-    /// 前置条件: 字符串不能为null、空或仅空白字符
     /// </summary>
     /// <param name="value">校验值</param>
     /// <param name="maxLength">最大允许长度 (包含)</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当字符串长度超出最大长度时抛出</exception>
     public static void StringMaxLength(string? value, int maxLength,
         [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
-        // 先确保字符串不为空
         NotNullOrWhiteSpace(value, paramName);
 
-        // 校验最大长度
         if (value!.Length > maxLength)
         {
             throw new ArgumentOutOfRangeException(
@@ -102,7 +96,7 @@ public static partial class Guard
     /// 确保集合不为 null 且至少包含一个元素
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentNullException">当value为null时抛出</exception>
     /// <exception cref="ArgumentException">当集合为空时抛出</exception>
     public static void NotNullOrEmpty<T>(IEnumerable<T>? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
@@ -121,7 +115,7 @@ public static partial class Guard
     /// 确保数值 >= 0 (非负数)
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当value为负数时抛出</exception>
     public static void NotNegative(int value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -135,7 +129,7 @@ public static partial class Guard
     /// 确保数值 >= 0 (非负数)
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当value为负数时抛出</exception>
     public static void NotNegative(long value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -149,7 +143,7 @@ public static partial class Guard
     /// 确保数值 >= 0 (非负数)
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当value为负数时抛出</exception>
     public static void NotNegative(decimal value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -163,9 +157,23 @@ public static partial class Guard
     /// 确保数值 > 0 (正数)
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当value小于等于0时抛出</exception>
     public static void Positive(int value, [CallerArgumentExpression(nameof(value))] string paramName = "")
+    {
+        if (value <= 0)
+        {
+            throw new ArgumentOutOfRangeException(paramName, value, "Value must be greater than zero.");
+        }
+    }
+
+    /// <summary>
+    /// 确保数值 > 0 (正数)
+    /// </summary>
+    /// <param name="value">校验值</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
+    /// <exception cref="ArgumentOutOfRangeException">当value小于等于0时抛出</exception>
+    public static void Positive(decimal value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
         if (value <= 0)
         {
@@ -179,7 +187,7 @@ public static partial class Guard
     /// <param name="value">校验值</param>
     /// <param name="min">最小值 (包含)</param>
     /// <param name="max">最大值 (包含)</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentOutOfRangeException">当value超出范围时抛出</exception>
     public static void InRange(int value, int min, int max, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -192,11 +200,11 @@ public static partial class Guard
 
     #region 布尔条件校验
     /// <summary>
-    /// 确保条件为 true
+    /// 确保条件为 false (如果条件为true则抛出异常)
     /// </summary>
     /// <param name="condition">校验条件</param>
     /// <param name="message">异常消息</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentException">当condition为true时抛出</exception>
     public static void Against(bool condition, string message, [CallerArgumentExpression(nameof(condition))] string paramName = "")
     {
@@ -226,7 +234,7 @@ public static partial class Guard
     /// 确保字符串是有效的 Guid
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentException">当value不是有效的Guid格式时抛出</exception>
     public static void ValidGuid(string? value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -242,7 +250,7 @@ public static partial class Guard
     /// 确保 Guid 不是空值
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <exception cref="ArgumentException">当value为Guid.Empty时抛出</exception>
     public static void NotEmpty(Guid value, [CallerArgumentExpression(nameof(value))] string paramName = "")
     {
@@ -253,18 +261,18 @@ public static partial class Guard
     }
     #endregion
 
-    #region 高级: 枚举校验
+    #region 枚举校验
     /// <summary>
     /// 确保枚举值是定义的有效值
     /// </summary>
     /// <param name="value">校验值</param>
-    /// <param name="paramName">参数名</param>
+    /// <param name="paramName">参数名 (自动获取)</param>
     /// <typeparam name="TEnum">枚举类型</typeparam>
     /// <exception cref="ArgumentOutOfRangeException">当value不是有效的枚举值时抛出</exception>
     public static void ValidEnum<TEnum>(TEnum value, [CallerArgumentExpression(nameof(value))] string paramName = "")
         where TEnum : struct, Enum
     {
-        if (!Enum.IsDefined(value))
+        if (!Enum.IsDefined<TEnum>(value))
         {
             throw new ArgumentOutOfRangeException(
                 paramName,
