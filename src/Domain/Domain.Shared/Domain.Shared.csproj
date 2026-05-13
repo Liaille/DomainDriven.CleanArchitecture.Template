@@ -15,26 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\Errors\ErrorMessages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ErrorMessages.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Errors\ErrorMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Domain.Shared.Resources.Errors</CustomToolNamespace>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="ErrorCodes\" />
     <Folder Include="Extensions\" />
     <Folder Include="Regexes\" />
     <Folder Include="ValueObjects\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>

@@ -1,50 +1,88 @@
 <Solution>
   <Folder Name="/Application/">
     <Project Path="src/Application/Application.Contracts/Application.Contracts.csproj" Id="0832346b-3cee-45d7-a32d-eb73bf3371f1" />
+    <Project Path="src/Application/Application.EventContracts/Application.EventContracts.csproj" Id="73f50fd0-c545-455f-b574-929653d512ac" />
     <Project Path="src/Application/Application/Application.csproj" Id="668be59d-a05d-47e7-a593-d9a38083e020" />
   </Folder>
   <Folder Name="/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/BuildingBlocks.Api/BuildingBlocks.Api.csproj" Id="598d56e2-0698-421b-9a69-c33e67b8da12" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.AppInitializer/BuildingBlocks.AppInitializer.csproj" Id="23d2fc29-cb8b-4ed7-b167-929f0d1e62f8" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.BackgroundJobs.Abstractions/BuildingBlocks.BackgroundJobs.Abstractions.csproj" Id="1a48c7c3-67e5-4d0e-bb90-eb752cff98db" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.BackgroundJobs/BuildingBlocks.BackgroundJobs.csproj" Id="1f0d0f8d-d820-4482-96ad-f57d81ad4d1c" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Caching.Abstractions/BuildingBlocks.Caching.Abstractions.csproj" Id="e6af83fa-e933-4d3a-b577-b47b1c97afa7" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Caching/BuildingBlocks.Caching.csproj" Id="73401866-894e-47c7-9f29-f2ca74e53939" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Compliance.Abstractions/BuildingBlocks.Compliance.Abstractions.csproj" Id="1959c5dd-8e9f-48f9-8d74-b9cfe32a19d4" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Compliance/BuildingBlocks.Compliance.csproj" Id="3a690098-00e0-4b59-b60b-6ff2fb9d6dc0" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Configuration/BuildingBlocks.Configuration.csproj" Id="d5657a4e-c574-4baa-9565-41f5276fa340" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Core/BuildingBlocks.Core.csproj" Id="fbbd0828-fb37-4fda-86cf-dbe30a3db742" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/BuildingBlocks.CQRS.csproj" Id="e6f13d6f-6c13-42b5-8f86-8de9b0bfc900" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.EventBus.Abstractions/BuildingBlocks.EventBus.Abstractions.csproj" Id="6ebd8364-de8a-4879-901e-f0c06421bbd9" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.EventBus/BuildingBlocks.EventBus.csproj" Id="3ba02959-a02b-410b-88a6-e1e32898911e" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.ExecutionContext.Abstractions/BuildingBlocks.ExecutionContext.Abstractions.csproj" Id="cface938-9a66-4ad4-8475-de7d59183c95" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.ExecutionContext/BuildingBlocks.ExecutionContext.csproj" Id="65adcd51-ec36-4a6c-a6d7-ad225af8fb35" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.HttpClient/BuildingBlocks.HttpClient.csproj" Id="e32227a4-7126-42d7-87f8-8918f6d57178" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.IdGenerator.Abstractions/BuildingBlocks.IdGenerator.Abstractions.csproj" Id="405ebffb-9704-4274-a593-2cedc1669249" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.IdGenerator/BuildingBlocks.IdGenerator.csproj" Id="19d88ba0-9881-4ec1-a272-f3d6aa17957f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Localization.Abstractions/BuildingBlocks.Localization.Abstractions.csproj" Id="af383bba-aaf2-4b61-b6a8-56e8ddeb9ad4" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Localization/BuildingBlocks.Localization.csproj" Id="d904c66e-de29-44e7-9eaf-c6ff760b370e" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Logging/BuildingBlocks.Logging.csproj" Id="960786b2-e409-404b-990c-30db8beb5d6a" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Monitoring.Abstractions/BuildingBlocks.Monitoring.Abstractions.csproj" Id="8d803328-4334-4f87-bc91-ae58131c80d6" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Monitoring/BuildingBlocks.Monitoring.csproj" Id="ce61c847-cde3-442e-b0eb-889d9d2e3eaf" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.MultiTenancy.Abstractions/BuildingBlocks.MultiTenancy.Abstractions.csproj" Id="1280ace0-12f6-4dea-a45c-5ffd58476804" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.MultiTenancy/BuildingBlocks.MultiTenancy.csproj" Id="98ce404b-69db-49a1-a203-ebf6e8302117" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Notification.Abstractions/BuildingBlocks.Notification.Abstractions.csproj" Id="fd7df8b3-3922-44c2-a9bf-2b48c9bf9b50" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Notification/BuildingBlocks.Notification.csproj" Id="20e1dd99-ce75-4862-9020-23158beb288c" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence.Abstractions/BuildingBlocks.Persistence.Abstractions.csproj" Id="f69eab82-7714-4ce7-b7e3-17614ab47841" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/BuildingBlocks.Persistence.csproj" Id="26e937d8-610b-4335-846f-2f1dfd29232f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Plugin.Abstractions/BuildingBlocks.Plugin.Abstractions.csproj" Id="8de70ce5-a8d4-4cd3-9e01-1beb05a9465f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Plugin/BuildingBlocks.Plugin.csproj" Id="775f988f-d07b-4355-8c17-29f6d6dfad43" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Querying.Abstractions/BuildingBlocks.Querying.Abstractions.csproj" Id="c6392585-a0d3-489d-a7d8-06d767d1886e" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Querying/BuildingBlocks.Querying.csproj" Id="d0ed1c11-5e77-47aa-b350-f2c110ae8c10" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Resilience/BuildingBlocks.Resilience.csproj" Id="46d7c4a5-510c-4b42-8494-8717b45e52f4" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Security.Abstractions/BuildingBlocks.Security.Abstractions.csproj" Id="51f27b69-2a77-4817-b94a-e313b304287d" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Security/BuildingBlocks.Security.csproj" Id="93820a58-1f40-4ca8-ab08-0fda3d2fb57f" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Serialization.Abstractions/BuildingBlocks.Serialization.Abstractions.csproj" Id="815c006f-b79a-4100-a4c0-4bfdb723c975" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Serialization/BuildingBlocks.Serialization.csproj" Id="5dda2ee4-64ff-4005-bbb2-ad4f754be9f7" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Storage.Abstractions/BuildingBlocks.Storage.Abstractions.csproj" Id="30e6c6a4-2f7b-4f24-9840-b492ac487b08" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Storage/BuildingBlocks.Storage.csproj" Id="d89cd1ac-6e34-4275-94cb-d15a85fddacb" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Time.Abstractions/BuildingBlocks.Time.Abstractions.csproj" Id="2bde54ad-d8d9-4218-a9b1-c36a6b506e45" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Time/BuildingBlocks.Time.csproj" Id="9d41b280-185a-411f-aae6-5d5c28c23976" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Transaction.Abstractions/BuildingBlocks.Transaction.Abstractions.csproj" Id="8c105c0b-29e0-48f6-9d06-1f67171ce969" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Transaction/BuildingBlocks.Transaction.csproj" Id="97baf382-6ec7-43c3-b45e-0d95e7a7ebcb" />
   </Folder>
   <Folder Name="/Domain/">
     <Project Path="src/Domain/Domain.Shared/Domain.Shared.csproj" Id="8ed97300-e2df-41ce-8837-488d970eb503" />
     <Project Path="src/Domain/Domain/Domain.csproj" Id="cdd83e1c-5d34-4302-a752-8539f1028091" />
   </Folder>
+  <Folder Name="/Gateway/">
+    <Project Path="src/Gateway/Gateway.ApiGateway/ApiGateway.csproj" Id="460e9206-2075-43c9-ac0b-f7779330d284" />
+  </Folder>
   <Folder Name="/Infrastructure/">
+    <Project Path="src/Infrastructure/Infrastructure.BackgroundJobs/Infrastructure.BackgroundJobs.csproj" Id="9c2ce237-4ed1-426d-ba85-47e21d8831e9" />
     <Project Path="src/Infrastructure/Infrastructure.EntityFrameworkCore/Infrastructure.EntityFrameworkCore.csproj" Id="def2a88e-b2ab-4393-8fb5-8769a36e60a7" />
     <Project Path="src/Infrastructure/Infrastructure.EventSourcing/Infrastructure.EventSourcing.csproj" Id="efd248ae-d6fe-4881-8666-dc18dbccc205" />
     <Project Path="src/Infrastructure/Infrastructure.Jwt/Infrastructure.Jwt.csproj" Id="50a1adff-3bde-472c-8615-41143bfdc8a2" />
+    <Project Path="src/Infrastructure/Infrastructure.Kafka/Infrastructure.Kafka.csproj" Id="13067777-512f-49e8-aaf9-6b1364b96410" />
     <Project Path="src/Infrastructure/Infrastructure.Minio/Infrastructure.Minio.csproj" Id="48c370b4-015f-4075-a0e1-8f8282f85e80" />
+    <Project Path="src/Infrastructure/Infrastructure.MultiTenancy/Infrastructure.MultiTenancy.csproj" Id="66fff890-b5a2-4eb3-a2b1-6cca9da7cbee" />
+    <Project Path="src/Infrastructure/Infrastructure.Notification/Infrastructure.Notification.csproj" Id="806ef63b-cdc5-4afa-b09b-f3aaaa1745aa" />
+    <Project Path="src/Infrastructure/Infrastructure.Plugin/Infrastructure.Plugin.csproj" Id="b28fff16-882d-4c53-9d59-6a293fe482cb" />
     <Project Path="src/Infrastructure/Infrastructure.Quartz/Infrastructure.Quartz.csproj" Id="a807fb2d-3367-4d56-8c76-43913f143fab" />
     <Project Path="src/Infrastructure/Infrastructure.RabbitMQ/Infrastructure.RabbitMQ.csproj" Id="db5f8bd2-b8b6-4a30-87c3-8f8f90715d41" />
     <Project Path="src/Infrastructure/Infrastructure.Redis/Infrastructure.Redis.csproj" Id="6631ade0-5b54-4703-86c6-5bea380c09df" />
+    <Project Path="src/Infrastructure/Infrastructure.ServiceCommunication/Infrastructure.ServiceCommunication.csproj" Id="6a53f0b2-4c8e-43c1-8d8e-9b6499d5f633" />
+    <Project Path="src/Infrastructure/Infrastructure.Storage/Infrastructure.Storage.csproj" Id="1ed781a0-8b8b-447e-9155-307997cef20b" />
+    <Project Path="src/Infrastructure/Infrastructure.Transaction/Infrastructure.Transaction.csproj" Id="d0418c3b-e45e-4cdd-8549-d93c76418756" />
     <Project Path="src/Infrastructure/Infrastructure/Infrastructure.csproj" Id="ce2555b6-6b66-4543-9f8e-eb8ec508f336" />
   </Folder>
   <Folder Name="/Presentation/">
     <Project Path="src/Presentation/Api/Api.csproj" Id="2d97fd6e-2865-4f67-8e15-1d4b577d3ea3" />
-    <Project Path="src/Presentation/ApiGateway/ApiGateway.csproj" Id="0184888a-e33b-4d9d-a024-00143953ff44" />
   </Folder>
   <Folder Name="/Tests/">
+    <Project Path="tests/Tests.Architecture/Tests.Architecture/Tests.Architecture.csproj" Id="291acb0e-842a-4468-a803-a8338fbc34ba" />
     <Project Path="tests/Tests.Integration/Tests.Integration.csproj" />
     <Project Path="tests/Tests.Performance/Tests.Performance.csproj" />
+    <Project Path="tests/Tests.Shared/Tests.Shared/Tests.Shared.csproj" Id="d2b479a7-1314-4962-887e-abb8e68d8a47" />
     <Project Path="tests/Tests.Unit/Tests.Unit.csproj" />
   </Folder>
 </Solution>
