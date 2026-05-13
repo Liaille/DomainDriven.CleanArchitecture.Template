@@ -30,4 +30,11 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ErrorCodes\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Regexes\" />
+    <Folder Include="ValueObjects\" />
+  </ItemGroup>
+
 </Project>

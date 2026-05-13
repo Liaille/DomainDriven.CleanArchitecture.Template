@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interceptors\**" />
+    <EmbeddedResource Remove="Interceptors\**" />
+    <None Remove="Interceptors\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.6" />
   </ItemGroup>
@@ -16,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Extensions\" />
     <Folder Include="Repository\" />
     <Folder Include="Specification\" />
     <Folder Include="UnitOfWork\" />

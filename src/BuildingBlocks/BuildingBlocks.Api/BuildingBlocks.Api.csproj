@@ -15,11 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Behaviors\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Middleware\" />
     <Folder Include="ResponseCompression\" />
     <Folder Include="Swagger\" />
     <Folder Include="ApiVersioning\" />
     <Folder Include="Cors\" />
     <Folder Include="SecurityHeaders\" />
+    <Folder Include="UnifiedResponse\" />
   </ItemGroup>
 
   <ItemGroup>

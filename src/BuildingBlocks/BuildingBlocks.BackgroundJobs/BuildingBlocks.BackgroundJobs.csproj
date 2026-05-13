@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="BackgroundServices\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="TaskQueue\" />
     <Folder Include="Worker\" />
     <Folder Include="ScheduledJobs\" />
     <Folder Include="DelayedJobs\" />

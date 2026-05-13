@@ -7,8 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Metrics\" />
-    <Folder Include="Profiling\" />
+    <Compile Remove="Abstractions\**" />
+    <Compile Remove="Alerts\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="HealthChecks\**" />
+    <Compile Remove="Metrics\**" />
+    <Compile Remove="OpenTelemetry\**" />
+    <Compile Remove="Profiling\**" />
+    <EmbeddedResource Remove="Abstractions\**" />
+    <EmbeddedResource Remove="Alerts\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="HealthChecks\**" />
+    <EmbeddedResource Remove="Metrics\**" />
+    <EmbeddedResource Remove="OpenTelemetry\**" />
+    <EmbeddedResource Remove="Profiling\**" />
+    <None Remove="Abstractions\**" />
+    <None Remove="Alerts\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="HealthChecks\**" />
+    <None Remove="Metrics\**" />
+    <None Remove="OpenTelemetry\**" />
+    <None Remove="Profiling\**" />
   </ItemGroup>
 
   <ItemGroup>

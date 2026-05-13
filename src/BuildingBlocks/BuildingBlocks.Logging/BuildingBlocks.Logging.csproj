@@ -7,6 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AuditLogging\**" />
+    <Compile Remove="BusinessLogging\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="Serilog\**" />
+    <Compile Remove="Sinks\**" />
+    <EmbeddedResource Remove="AuditLogging\**" />
+    <EmbeddedResource Remove="BusinessLogging\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="Serilog\**" />
+    <EmbeddedResource Remove="Sinks\**" />
+    <None Remove="AuditLogging\**" />
+    <None Remove="BusinessLogging\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="Serilog\**" />
+    <None Remove="Sinks\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Elastic.Serilog.Sinks" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
