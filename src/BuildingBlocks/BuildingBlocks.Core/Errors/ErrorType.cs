@@ -24,6 +24,16 @@ public enum ErrorType
     Parameter = 'P',
 
     /// <summary>
+    /// 安全错误 (Authentication/Authorization)
+    /// 错误码前缀: A
+    /// 适用场景: 未登录/未认证、Token无效/过期/吊销、权限不足、角色不匹配、越权访问、恶意请求检测、接口防刷触发、非法身份验证
+    /// 默认日志级别: 按严重程度分级(普通未认证=Information/权限不足=Warning/恶意攻击=Error)
+    /// 默认HTTP状态码: 401 Unauthorized(未认证) / 403 Forbidden(权限不足/恶意请求)
+    /// 默认告警策略: 普通未认证不告警；高频权限不足(1分钟>50次)汇总告警；恶意请求立即触发告警
+    /// </summary>
+    Security = 'A',
+
+    /// <summary>
     /// 业务错误 (Business)
     /// 错误码前缀: B
     /// 适用场景: 业务规则校验失败、业务状态异常、操作权限不足(业务级)
