@@ -2,14 +2,14 @@
 
 /// <summary>
 /// 公共错误码常量
-/// <remark>
-/// <para>【规范约定】</para>
+/// </summary>
+/// <remarks>
+/// 【规范约定】
 /// <list type="number">
 /// <item>业务线01预留为公共业务线</item>
 /// <item>各业务模块应在此基础上扩展自己的业务错误码</item>
 /// </list>
-/// </remark>
-/// </summary>
+/// </remarks>
 public static class ErrorCodes
 {
     #region 参数错误 (Px01001xxx)

@@ -5,7 +5,16 @@ using System.Text.Json.Serialization;
 
 namespace BuildingBlocks.Core.Exceptions;
 
-
+/// <summary>
+/// 应用程序异常基类
+/// </summary>
+/// <remarks>
+/// 【设计原则】
+/// <list type="number">
+/// <item>所有业务异常必须继承此类</item>
+/// <item>Message属性仅用于开发人员诊断，不作为用户可见内容</item>
+/// </list>
+/// </remarks>
 public abstract class AppException : Exception
 {
     /// <summary>
@@ -46,6 +55,13 @@ public abstract class AppException : Exception
     public Dictionary<string, object> Context { get; }
 
     /// <summary>
+    /// 重写Message属性
+    /// 仅用于开发人员诊断，不展示给用户
+    /// 用户可见的消息由展示层通过错误码从资源文件获取
+    /// </summary>
+    public override string Message => ErrorInfo.ToString();
+
+    /// <summary>
     /// 全局 JSON 序列化配置
     /// 确保所有异常和错误对象序列化行为一致
     /// </summary>
@@ -65,14 +81,25 @@ public abstract class AppException : Exception
     /// <summary>
     /// 主构造函数
     /// </summary>
-    /// <param name="error"></param>
-    /// <param name="innerException"></param>
+    /// <param name="error">10位错误码</param>
+    /// <param name="innerException">内部异常 (可选)</param>
     protected AppException(Error error, Exception? innerException = null)
         : base(error.ToString(), innerException)
     {
         Guard.NotNull(error);
         ErrorInfo = error;
         Context = [];
+    }
+
+    /// <summary>
+    /// 简化构造函数
+    /// </summary>
+    /// <param name="code">10位错误码</param>
+    /// <param name="details">子错误详情列表 (可选)</param>
+    /// <param name="innerException">内部异常 (可选)</param>
+    protected AppException(string code, IReadOnlyList<ErrorDetail>? details = null, Exception? innerException = null)
+        : this(Error.Create(code, details), innerException)
+    {
     }
 
     /// <summary>
@@ -98,6 +125,11 @@ public abstract class AppException : Exception
         return JsonSerializer.Deserialize<TException>(json, SerializerOptions);
     }
 
+    /// <summary>
+    /// 添加分布式上下文
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
     public void AddContext(string key, object value)
     {
         Guard.NotNullOrWhiteSpace(key);
@@ -105,6 +137,11 @@ public abstract class AppException : Exception
         Context[key] = value;
     }
 
+    /// <summary>
+    /// 获取分布式上下文指定键的值
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
     public object? GetContext(string key)
     {
         Context.TryGetValue(key, out var value);

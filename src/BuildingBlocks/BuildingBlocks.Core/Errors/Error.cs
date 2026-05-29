@@ -1,11 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using BuildingBlocks.Core.Common;
+using System.Text.Json.Serialization;
 
 namespace BuildingBlocks.Core.Errors;
 
+/// <summary>
+/// 错误信息模型
+/// </summary>
 public sealed record Error
 {
     /// <summary>
-    /// 固定长度格式错误码
+    /// 10位固定长度格式错误码
     /// <para>格式: [错误类型码(1位)][业务线编码(3位)][模块编码(2位)][错误编码(4位)]</para>
     /// </summary>
     [JsonPropertyOrder(1)]
@@ -39,6 +43,12 @@ public sealed record Error
     public DateTimeOffset Timestamp { get; init; }
 
     /// <summary>
+    /// 该错误是否可以重试
+    /// </summary>
+    [JsonIgnore]
+    public bool IsRetryable => Type is ErrorType.System or ErrorType.ThirdParty && Severity <= SeverityLevel.Warning;
+
+    /// <summary>
     /// 私有构造函数
     /// 强制通过工厂方法创建错误
     /// </summary>
@@ -57,13 +67,13 @@ public sealed record Error
     /// <summary>
     /// 创建任意类型的错误
     /// </summary>
-    /// <param name="code">10位错误码</param>
+    /// <param name="code">10位错误码 (P/A/B/S/T/F 开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>错误对象</returns>
-    public static Error Create(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error Create(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.ValidateCodeFormat(code);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -72,10 +82,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (P开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>参数错误对象</returns>
-    public static Error Parameter(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error Parameter(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.Parameter);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -84,10 +94,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (A开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>参数错误对象</returns>
-    public static Error Security(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error Security(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.Security);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -96,10 +106,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (B开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>业务错误对象</returns>
-    public static Error Business(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error Business(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.Business);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -108,10 +118,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (S开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>系统错误对象</returns>
-    public static Error System(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error System(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.System);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -120,10 +130,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (T开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>第三方错误对象</returns>
-    public static Error ThirdParty(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error ThirdParty(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.ThirdParty);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -132,10 +142,10 @@ public sealed record Error
     /// <param name="code">10位错误码 (F开头)</param>
     /// <param name="details">子错误详情列表 (可选)</param>
     /// <returns>致命错误对象</returns>
-    public static Error Fatal(string code, IEnumerable<ErrorDetail>? details = null)
+    public static Error Fatal(string code, IReadOnlyList<ErrorDetail>? details = null)
     {
         ErrorCodeValidator.Validate(code, ErrorType.Fatal);
-        return new Error(code, details?.ToList().AsReadOnly() ?? []);
+        return new Error(code, details ?? []);
     }
 
     /// <summary>
@@ -143,9 +153,10 @@ public sealed record Error
     /// </summary>
     /// <param name="details"></param>
     /// <returns></returns>
-    public Error WithDetails(IEnumerable<ErrorDetail> details)
+    public Error WithDetails(IReadOnlyList<ErrorDetail> details)
     {
-        return this with { Details = details.ToList().AsReadOnly() };
+        Guard.NotNullOrEmpty(details);
+        return this with { Details = details };
     }
 
     /// <summary>
