@@ -22,7 +22,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">可序列化类型</typeparam>
     /// <param name="value">待序列化对象</param>
     /// <returns>XDocument对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：XmlSerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: XmlSerializationFailed</exception>
     XDocument SerializeToXDocument<T>(T? value);
 
     /// <summary>
@@ -31,7 +31,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">可序列化类型</typeparam>
     /// <param name="value">待序列化对象</param>
     /// <returns>格式化后的XML字符串</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：XmlSerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: XmlSerializationFailed</exception>
     string Serialize<T>(T? value);
 
     /// <summary>
@@ -40,7 +40,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">可序列化类型</typeparam>
     /// <param name="value">待序列化对象</param>
     /// <param name="stream">目标输出流</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：XmlSerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: XmlSerializationFailed</exception>
     void SerializeToStream<T>(T? value, Stream stream);
 
     #endregion
@@ -54,7 +54,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>格式化后的XML字符串</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：XmlSerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: XmlSerializationFailed</exception>
     Task<string> SerializeAsync<T>(T? value, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -64,7 +64,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="stream">目标输出流</param>
     /// <param name="cancellationToken">取消令牌</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：XmlSerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: XmlSerializationFailed</exception>
     Task SerializeToStreamAsync<T>(T? value, Stream stream, CancellationToken cancellationToken = default);
 
     #endregion
@@ -77,7 +77,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">目标类型</typeparam>
     /// <param name="document">XDocument对象</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：XmlDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: XmlDeserializationFailed</exception>
     T? DeserializeFromXDocument<T>(XDocument document);
 
     /// <summary>
@@ -86,7 +86,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">目标类型</typeparam>
     /// <param name="xml">XML字符串</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：XmlDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: XmlDeserializationFailed</exception>
     T? Deserialize<T>(string xml);
 
     /// <summary>
@@ -95,7 +95,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <typeparam name="T">目标类型</typeparam>
     /// <param name="stream">输入流</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：XmlDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: XmlDeserializationFailed</exception>
     T? DeserializeFromStream<T>(Stream stream);
 
     #endregion
@@ -109,7 +109,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <param name="xml">XML字符串</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：XmlDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: XmlDeserializationFailed</exception>
     Task<T?> DeserializeAsync<T>(string xml, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -119,7 +119,7 @@ public interface IXDocumentSerializer : ISerializer
     /// <param name="stream">输入流</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：XmlDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: XmlDeserializationFailed</exception>
     Task<T?> DeserializeFromStreamAsync<T>(Stream stream, CancellationToken cancellationToken = default);
 
     #endregion

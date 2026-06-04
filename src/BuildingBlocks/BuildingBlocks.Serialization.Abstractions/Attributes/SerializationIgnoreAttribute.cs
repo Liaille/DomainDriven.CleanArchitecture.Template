@@ -29,15 +29,4 @@ public class SerializationIgnoreAttribute : Attribute
             IgnoreForFormats[format] = true;
         }
     }
-
-    /// <summary>
-    /// 检查是否需要忽略指定格式
-    /// </summary>
-    public bool ShouldIgnore(SerializationFormat format)
-    {
-        if (IgnoreForFormats.Count == 0)
-            return true;
-
-        return IgnoreForFormats.TryGetValue(format, out var ignore) && ignore;
-    }
 }

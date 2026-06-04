@@ -23,7 +23,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <returns>格式化后的JSON字符串</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     string Serialize<T>(T? value, JsonSerializerContext context);
 
     /// <summary>
@@ -34,7 +34,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <returns>UTF-8编码的字节数组</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     byte[] SerializeToBytes<T>(T? value, JsonSerializerContext context);
 
     /// <summary>
@@ -45,7 +45,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="stream">目标输出流</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     void SerializeToStream<T>(T? value, JsonSerializerContext context, Stream stream);
 
     #endregion
@@ -60,7 +60,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>格式化后的JSON字符串</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     Task<string> SerializeAsync<T>(T? value, JsonSerializerContext context, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -72,7 +72,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>UTF-8编码的字节数组</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     Task<byte[]> SerializeToBytesAsync<T>(T? value, JsonSerializerContext context, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -84,7 +84,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="stream">目标输出流</param>
     /// <param name="cancellationToken">取消令牌</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：SerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: SerializationFailed</exception>
     Task SerializeToStreamAsync<T>(T? value, JsonSerializerContext context, Stream stream, CancellationToken cancellationToken = default);
 
     #endregion
@@ -98,7 +98,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="json">JSON字符串</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     T? Deserialize<T>(string json, JsonSerializerContext context);
 
     /// <summary>
@@ -109,7 +109,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="bytes">UTF-8编码的字节数组</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     T? DeserializeFromBytes<T>(byte[] bytes, JsonSerializerContext context);
 
     /// <summary>
@@ -120,7 +120,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="stream">输入流</param>
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     T? DeserializeFromStream<T>(Stream stream, JsonSerializerContext context);
 
     #endregion
@@ -135,7 +135,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     Task<T?> DeserializeAsync<T>(string json, JsonSerializerContext context, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -147,7 +147,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     Task<T?> DeserializeFromBytesAsync<T>(byte[] bytes, JsonSerializerContext context, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -159,7 +159,7 @@ public interface IJsonSerializer : ISerializer
     /// <param name="context">源生成器生成的JsonSerializerContext</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：DeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: DeserializationFailed</exception>
     Task<T?> DeserializeFromStreamAsync<T>(Stream stream, JsonSerializerContext context, CancellationToken cancellationToken = default);
 
     #endregion

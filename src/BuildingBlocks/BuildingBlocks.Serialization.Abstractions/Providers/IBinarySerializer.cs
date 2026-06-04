@@ -20,7 +20,7 @@ public interface IBinarySerializer : ISerializer
     /// <typeparam name="T">可序列化类型 (必须标记对应格式的源生成器特性)</typeparam>
     /// <param name="value">待序列化对象</param>
     /// <returns>二进制字节数组</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：BinarySerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: BinarySerializationFailed</exception>
     byte[] Serialize<T>(T? value);
 
     /// <summary>
@@ -30,7 +30,7 @@ public interface IBinarySerializer : ISerializer
     /// <typeparam name="T">可序列化类型 (必须标记对应格式的源生成器特性)</typeparam>
     /// <param name="value">待序列化对象</param>
     /// <param name="stream">目标输出流</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：BinarySerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: BinarySerializationFailed</exception>
     void SerializeToStream<T>(T? value, Stream stream);
 
     #endregion
@@ -44,7 +44,7 @@ public interface IBinarySerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>二进制字节数组</returns>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：BinarySerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: BinarySerializationFailed</exception>
     Task<byte[]> SerializeAsync<T>(T? value, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -55,7 +55,7 @@ public interface IBinarySerializer : ISerializer
     /// <param name="value">待序列化对象</param>
     /// <param name="stream">目标输出流</param>
     /// <param name="cancellationToken">取消令牌</param>
-    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码：BinarySerializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">序列化失败时抛出，错误码: BinarySerializationFailed</exception>
     Task SerializeToStreamAsync<T>(T? value, Stream stream, CancellationToken cancellationToken = default);
 
     #endregion
@@ -68,7 +68,7 @@ public interface IBinarySerializer : ISerializer
     /// <typeparam name="T">目标类型 (必须标记对应格式的源生成器特性)</typeparam>
     /// <param name="bytes">二进制字节数组</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：BinaryDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: BinaryDeserializationFailed</exception>
     T? Deserialize<T>(byte[] bytes);
 
     /// <summary>
@@ -78,7 +78,7 @@ public interface IBinarySerializer : ISerializer
     /// <typeparam name="T">目标类型 (必须标记对应格式的源生成器特性)</typeparam>
     /// <param name="stream">输入流</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：BinaryDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: BinaryDeserializationFailed</exception>
     T? DeserializeFromStream<T>(Stream stream);
 
     #endregion
@@ -92,7 +92,7 @@ public interface IBinarySerializer : ISerializer
     /// <param name="bytes">二进制字节数组</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：BinaryDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: BinaryDeserializationFailed</exception>
     Task<T?> DeserializeAsync<T>(byte[] bytes, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -103,9 +103,8 @@ public interface IBinarySerializer : ISerializer
     /// <param name="stream">输入流</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>反序列化后的对象</returns>
-    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码：BinaryDeserializationFailed</exception>
+    /// <exception cref="Core.Exceptions.InternalException">反序列化失败时抛出，错误码: BinaryDeserializationFailed</exception>
     Task<T?> DeserializeFromStreamAsync<T>(Stream stream, CancellationToken cancellationToken = default);
 
     #endregion
 }
-

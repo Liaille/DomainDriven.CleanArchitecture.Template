@@ -58,3 +58,51 @@ public interface ISerializationOptions
     /// </summary>
     bool AllowCircularReferences { get; }
 }
+
+/// <summary>
+/// 默认序列化配置 (符合企业级最佳实践)
+/// </summary>
+public static class DefaultSerializationOptions
+{
+    /// <summary>
+    /// 生产环境推荐默认配置
+    /// </summary>
+    public static readonly ISerializationOptions Production = new DefaultSerializationOptionsImpl
+    {
+        DefaultFormat = SerializationFormat.Json,
+        NamingPolicy = NamingPolicy.CamelCase,
+        DefaultValueHandling = DefaultValueHandling.IgnoreNulls,
+        EnumSerializationMode = EnumSerializationMode.String,
+        MaxDepth = 100,
+        EnableCompression = true,
+        EnforceAotMode = true,
+        AllowCircularReferences = false
+    };
+
+    /// <summary>
+    /// 开发环境推荐默认配置
+    /// </summary>
+    public static readonly ISerializationOptions Development = new DefaultSerializationOptionsImpl
+    {
+        DefaultFormat = SerializationFormat.Json,
+        NamingPolicy = NamingPolicy.CamelCase,
+        DefaultValueHandling = DefaultValueHandling.IncludeAll,
+        EnumSerializationMode = EnumSerializationMode.String,
+        MaxDepth = 100,
+        EnableCompression = false,
+        EnforceAotMode = false,
+        AllowCircularReferences = true
+    };
+
+    private sealed class DefaultSerializationOptionsImpl : ISerializationOptions
+    {
+        public SerializationFormat DefaultFormat { get; init; }
+        public NamingPolicy NamingPolicy { get; init; }
+        public DefaultValueHandling DefaultValueHandling { get; init; }
+        public EnumSerializationMode EnumSerializationMode { get; init; }
+        public int MaxDepth { get; init; }
+        public bool EnableCompression { get; init; }
+        public bool EnforceAotMode { get; init; }
+        public bool AllowCircularReferences { get; init; }
+    }
+}
