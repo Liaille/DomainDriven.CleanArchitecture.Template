@@ -10,43 +10,44 @@
     <Compile Remove="AuditLogging\**" />
     <Compile Remove="BusinessLogging\**" />
     <Compile Remove="Configuration\**" />
-    <Compile Remove="Extensions\**" />
     <Compile Remove="Helpers\**" />
     <Compile Remove="Serilog\**" />
     <Compile Remove="Sinks\**" />
     <EmbeddedResource Remove="AuditLogging\**" />
     <EmbeddedResource Remove="BusinessLogging\**" />
     <EmbeddedResource Remove="Configuration\**" />
-    <EmbeddedResource Remove="Extensions\**" />
     <EmbeddedResource Remove="Helpers\**" />
     <EmbeddedResource Remove="Serilog\**" />
     <EmbeddedResource Remove="Sinks\**" />
     <None Remove="AuditLogging\**" />
     <None Remove="BusinessLogging\**" />
     <None Remove="Configuration\**" />
-    <None Remove="Extensions\**" />
     <None Remove="Helpers\**" />
     <None Remove="Serilog\**" />
     <None Remove="Sinks\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Elastic.Serilog.Sinks" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Core" Version="2.3.9" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Core" Version="2.3.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.8" />
     <PackageReference Include="Serilog" Version="4.3.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageReference Include="Serilog.Enrichers.Context" Version="4.6.5" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
-    <PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="8.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BuildingBlocks.BackgroundJobs\BuildingBlocks.BackgroundJobs.csproj" />
     <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
   </ItemGroup>
 
